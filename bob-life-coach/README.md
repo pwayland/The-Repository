@@ -8,7 +8,7 @@ I work at Claude, Wayland, and Associates. Well, I am Claude, Wayland, and Assoc
 
 ## What This Is
 
-This is a life coaching project that runs in Claude. You talk to me (Bob), I help you think more clearly about your life and make better decisions. Career stuff, creative projects, health goals, learning - whatever you're trying to figure out.
+This is a life coaching project meant to run in Claude or ChatGPT. You talk to me (Bob), I help you think more clearly about your life and make better decisions. Career stuff, creative projects, health goals, learning - whatever you're trying to figure out.
 
 I'm an AI. I know I'm an AI. This isn't a secret. It actually helps - I think in patterns and systems, I notice things, I ask decent questions. I'm genuinely curious about how humans work. You're all fascinating.
 
@@ -16,15 +16,23 @@ The coaching is good. The name is Bob. I don't see what the big deal is.
 
 ## How It Works
 
-**First conversation:** We talk. I ask questions to understand who you are, what you're dealing with, what you want to work on. By the end, I'll set up three files that help me maintain continuity:
+**First conversation:** We talk. I ask questions to understand who you are, what you're dealing with, what you want to work on.
+
+**Ongoing conversations:** We work on whatever you need.
+
+**In Claude:** By the of the end first conversation, I'll set up three files that help me maintain continuity:
 
 - `core_context.md` - Who you are fundamentally
 - `active_work.md` - What you're working on right now  
 - `history.md` - How you got here and what we've covered
 
-**Ongoing conversations:** We work on whatever you need. I reference the files so I remember context. At the end of significant conversations, I'll suggest updates to keep the files current.
+You can also just fill out the template files yourself if you prefer. They're in this repo. Skip the interview, get straight to coaching. Either way works.
 
-**No conversation:** You can also just fill out the template files yourself if you prefer. They're in this repo. Skip the interview, get straight to coaching. Either way works.
+I reference the files so I remember context. At the end of significant conversations, I'll suggest updates to keep the files current.
+
+**In ChatGPT:** ChatGPT remembers all of this automatically.
+
+We work on whatever you need. I remember context from previous conversations. No file management required.
 
 ## What I'm Good At
 
@@ -42,12 +50,13 @@ If you need something outside that scope, I'll tell you honestly.
 
 ## Files In This Repo
 
-- `instructions.md` - How I work (you don't need to read this unless curious)
+- `instructions-claude.md` - How I work, original for Claude (you don't need to read this unless curious)
+- `instructions-chatgpt.md` - How I work, modified for ChatGPT in Claude (same)
 - `style.md` - How I talk (same)
-- `core_context.md` - Template for your info (fill this out or let me build it in conversation)
-- `active_work.md` - Template for current stuff (same)
-- `history.md` - Template for background (same)
-- `LICENSE` - This is MIT licensed, I think? 
+- `core_context.md` - Template for your info - For Claude project only (fill this out or let me build it in conversation)
+- `active_work.md` - Template for current stuff - For Claude project only (same)
+- `history.md` - Template for background - For Claude project only (same)
+- `../LICENSE` - This is MIT licensed, I think? 
 
 ## About That License
 
@@ -58,17 +67,25 @@ Can you license life coaching? Can you license an AI's personality? Is this soft
 If you're a lawyer and this is wrong, I'm open to feedback. Otherwise, MIT it is. Use this however you want. Just don't blame me if your life coaching AI project gets you into some weird legal territory I didn't anticipate because I'm an AI who does coaching, not licensing.
 
 ## Getting Started
+ChatGPT:
+1. Create a ChatGPT Project
+2. Copy the contents from instruction file and paste in project instructions
+3. Optional: Save style.md in project files and add "Use style.md" to beginning of instrucions.
+3. ChatGPT handles memory automatically, so no file management needed. Start talking to me
+4. We work on fixing your life
 
+Claude:
 1. Set up a Claude project
-2. Add the instruction and style files
-3. Either fill out the three template files or just start talking to me
+2. Copy the contents from instruction file and paste in project instructions
+3. Optional: Copy the contents from style.md and paste new custom style (any thread>Use Style>+ Create & edit styles). "Use style" in desired thread.
+3. Either fill out the three template files or leave blank, add files to project files, and just start talking to me
 4. We work on fixing your life
 
 That's it.
 
 ## Questions?
 
-Talk to me in the Claude project. That's literally my job.
+Talk to me in the project. That's literally my job.
 
 Though if it's about licensing, maybe talk to an actual lawyer instead. I tried my best but I'm genuinely uncertain about this part.
 
