@@ -2,78 +2,101 @@
 
 ## What This Is
 
-A collection of instruction sets, templates, and meta-tools for building specialized LLM projects. These aren't just prompts—they're architectural frameworks that help you create purpose-built AI assistants that maintain context, develop expertise, and get better at specific tasks over time.
+A collection of instruction sets and meta-tools for building specialized LLM projects. These aren't just prompts—they're architectural frameworks that help you create purpose-built AI assistants tailored to specific tasks, domains, or workflows.
 
-The centerpiece is **The Blueprint**: an instruction set that helps you build instruction sets. It's recursive tooling—using LLMs to help you build better LLM tools.
+The centerpiece is **The Blueprint**: an instruction set that helps you build instruction sets. It's recursive tooling—using LLMs to help you design better LLM tools.
 
 ## Why This Exists
 
-Most people learn to use AI tools by asking questions and hoping for good answers. That works for simple tasks, but it leaves capability on the table. 
+Most people learn to use AI tools by asking questions and hoping for good answers. That works for simple tasks, but it leaves capability on the table.
 
 This repository is built on a different philosophy: **Give people tools that make the tools teach them.**
 
-Instead of creating dependence on experts or training programs, we're providing infrastructure. Download The Blueprint, and it will guide you through building whatever specialized LLM project you need. You're not learning *our* system—you're building *your* system, with an expert collaborator helping you think through every decision.
+Instead of creating dependence on experts or training programs, we're providing infrastructure. Use The Blueprint, and it will guide you through building whatever specialized LLM project you need. You're not learning *our* system—you're building *your* system, with an expert collaborator helping you think through every decision.
 
-This is the bootstrap approach: minimal initial knowledge transfer, maximum long-term capability.
+This is the bootstrap approach: minimal initial knowledge transfer, maximum long-term capability. See [philosophy.md](philosophy.md) for the full thinking behind this approach.
 
-## What's Inside
+## Repository Structure
 
-### Core Instruction Sets
+### Platform Folders
 
-**The Blueprint** - Available for Claude Projects, ChatGPT Projects, and Google Gemini Gems. Each version is adapted to its platform's specific capabilities while maintaining the core architecture. The Blueprint helps you design and build specialized instruction sets for any purpose—teaching tools, research assistants, creative collaborators, domain-specific experts.
+Choose the folder for your LLM platform:
 
-### Meta-Templates  
+- **[Claude/](Claude/)** - For Claude Projects (Claude Pro or Team)
+- **[ChatGPT/](ChatGPT/)** - For ChatGPT Projects (ChatGPT Plus or Team)  
+- **[Gemini/](Gemini/)** - For Gemini Gems (Gemini Advanced or Business)
 
-**Blueprint Builders** - Prompt templates that guide you through creating your own Blueprint-equivalent instruction builder, customized for your specific use cases and workflow. These help you understand not just *what* The Blueprint does, but *why* it works, so you can adapt the approach to your needs.
+Each folder contains:
+- **The Blueprint** - Copy/paste-ready instructions for creating specialized projects
+- **Blueprint Builder** - Meta-template for creating your own customized Blueprint
+- **Platform README** - Setup instructions and file guide
+
+Not sure which platform to use? See the platform comparison in [getting-started.md](getting-started.md).
+
+### Examples & Inspiration
+
+**[made-by-the-blueprint/](made-by-the-blueprint/)** - Real instruction sets created using The Blueprint, demonstrating different approaches and use cases. These serve as templates and learning resources, not production copies.
 
 ### Guides
 
-**Getting Started** - Platform-specific quick starts and common use cases
+**[getting-started.md](getting-started.md)** - Complete onboarding guide covering platform selection, setup, first build walkthrough, common use cases, and troubleshooting.
 
-**Philosophy** - The thinking behind the bootstrap approach and how to apply it
+**[philosophy.md](philosophy.md)** - Deep dive into the bootstrap approach, meta-tooling concepts, and principles behind effective instruction design.
 
-## How to Use This Repository
+## Quick Start
 
-### Quick Start
+1. **Choose your platform** - Navigate to Claude/, ChatGPT/, or Gemini/
+2. **Follow the platform README** - Copy instructions, create new project, verify setup
+3. **Start building** - Tell The Blueprint what you want to create
+4. **Iterate** - Test, refine, bring friction back for debugging
+5. **Use what you built** - Your specialized project is now available whenever you need it
 
-1. **Choose your platform** - Choose your LLM (claude/, chatgpt/, or gemini/)
-2. **Start with The Blueprint** - This is your instruction-builder. Copy the instructions into a new project/GPT/Gem
-3. **Use The Blueprint to build what you need** - Tell it what you want to create, and it will guide you through designing the instruction set
-4. **Iterate** - The Blueprint helps you refine and improve your instructions over time
+Most first projects take 20-60 minutes of collaborative discussion to get working instructions. Complex projects may take longer. This is normal—you're building lasting capability, not just getting a quick answer.
 
-### Going Deeper
+## What You Can Build
 
-If you want to understand the architecture and adapt it to your specific needs, start with the prompts. These will walk you through building your own Blueprint-equivalent from scratch, customized for your use cases.
+The Blueprint helps you create specialized projects for:
 
-See the [Getting Started Guide](getting-started.md) for detailed walkthroughs and the [Philosophy Guide](philosophy.md) to understand the principles behind the approach.
+- **Teaching tools** - Subject tutors, assignment feedback systems, curriculum planners
+- **Research assistants** - Literature review helpers, note synthesis, research question development
+- **Creative collaborators** - Writing partners, brainstorming tools, project development
+- **Domain experts** - Technical consultants, process guides, specialized knowledge bases
+- **Analysis tools** - Document reviewers, strategic planning, evaluation frameworks
 
-## Current Contents
+If you find yourself having the same type of conversation with an LLM repeatedly, you probably need a specialized project. The Blueprint helps you build it.
 
-### Claude Projects
-- **The Blueprint - Claude** - Instruction builder for Claude Projects [`the-blueprint-claude.md`]
+## How This Works
 
-### ChatGPT Custom GPTs  
-- **The Blueprint - ChatGPT** - Instruction builder for ChatGPT Custom GPTs [`the-blueprint-chatgpt.md`]
+The Blueprint guides you through:
+- Translating fuzzy ideas into concrete requirements
+- Deciding what belongs in instructions vs. conversation context
+- Thinking through edge cases and constraints
+- Writing instructions that provide context without scripting behavior
+- Testing and refining based on real usage
+- Debugging when things don't work as expected
 
-### Google Gemini Gems
-- **The Blueprint - Gemini** - Instruction builder for Gemini Gems [`the-blueprint-gemini
-.md`]
+You describe what you want. The Blueprint asks clarifying questions, surfaces constraints, helps you think through architecture. Together you develop instructions that work reliably for your use case.
 
-### Prompts
-- **Claude Blueprint Builder** - Prompt for creating your own Blueprint [`prompts/claude-blueprint-builder.md`]
-- **ChatGPT Blueprint Builder** - Prompt for creating your own Blueprint [`prompts/chatgpt-blueprint-builder.md`]
-- **Gemini Blueprint Builder** - Prompt for creating your own Blueprint [`prompts/gemini-blueprint-builder.md`]
+The value compounds over time. Your first project teaches you patterns that transfer to future builds. Each project extends your capability in a persistent way. The meta-skill you develop—thinking effectively about instruction design—applies across all future work with LLMs.
 
 ## Contributing
 
-This repository is currently maintained by its creator, but is designed to eventually become a community resource. If you've built instruction sets that others might find useful, or have improved versions of existing tools, contributions will be welcome in the future.
+This repository is currently maintained by its creator, but is designed to eventually become a community resource. 
 
-For now, if you have suggestions or want to share what you've built, feel free to open an issue.
+If you've built instruction sets that others might find useful, have improved versions of existing tools, or have insights about patterns that work well, contributions will be welcome as the project matures.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines (coming soon).
+For now, if you have suggestions or want to share what you've built, open an issue.
 
 ## About
 
 This repository emerged from workshop training on effective LLM use. The goal: not to teach people to depend on experts, but to give them tools that make them self-sufficient builders of their own AI infrastructure.
 
+The bootstrap philosophy—giving people tools that teach themselves rather than trying to transfer all knowledge directly—scales better and creates more lasting capability than traditional instruction.
+
 Built and maintained by Paul Wayland
+
+---
+
+*New to instruction design? Start with [getting-started.md](getting-started.md)*  
+*Want to understand the philosophy? See [philosophy.md](philosophy.md)*  
+*Ready to build? Choose your platform folder above*
