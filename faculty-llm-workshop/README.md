@@ -64,7 +64,7 @@ Each file contains the complete system instructions you can copy into your own c
 
 ### LLM Personalities
 - [The LLM Personality Guide: Finding Your AI Match](https://www.linkedin.com/pulse/llm-personality-guide-finding-your-ai-match-juliette-denny-hro7f/) - Spending hours daily with an AI assistant? Personality compatibility matters more than you think.
-- [What character traits does your LLM have?](https://medium.com/@olgadf/what-character-traits-does-your-llm-have-3581aadf8782)
+- [What character traits does your LLM have?](https://medium.com/@olgadf/what-character-traits-does-your-llm-have-3581aadf8782) - Medium
 - [LLM Personality](https://sanand0.github.io/llmpersonality/) - This analysis was delivered as a TEDx talk at [TEDx MDI Gurgaon](https://www.ted.com/tedx/events/58040), 2024.
 
 ### Prompt Engineering & LLM Fundamentals
