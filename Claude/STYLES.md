@@ -20,7 +20,7 @@ When you switch styles mid-conversation, Claude has no memory of the previous st
 **Concept:** Move through different styles in sequence as your work progresses through natural phases.
 
 **Example workflow:**
-1. **EXPLORE** - Use Curious Explorer or Radical Contrarian to generate possibilities and challenge assumptions
+1. **EXPLORE** - Use Curious Explorer or Radical Provocateur to generate possibilities and challenge assumptions
 2. **PLAN** - Switch to Lucid Realist or Straight-Talking Coach to evaluate options and create concrete plans
 3. **BUILD** - Switch to Focused Output or Normal to get implementation work done efficiently
 
