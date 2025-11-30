@@ -34,18 +34,18 @@ Three projects forming a complete ecosystem for understanding AI-assisted academ
 - **Grade Whisperer** [→ Open Project](https://chatgpt.com/g/g-p-692b573ad0008191a374d5c4da616fd6-grade-whisperer/project)  
   Optimize student writing for rubric performance through strategic LLM use
 
-- **Witch Hunter** [→ Open Project](#)  
+- **Witch Hunter** [→ Open Project](https://chatgpt.com/g/g-p-692b5d35917c819186c807fd8d9bcc95-witch-hunter/project)  
   Detect AI assistance traces through stylistic analysis and inconsistency patterns
 
-- **Exorcist** [→ Open Project](#)  
+- **Exorcist** [→ Open Project](https://chatgpt.com/g/g-p-692b603645808191bc478813ebd19bd1-exorcist/project)  
   Remove AI traces while preserving argument structure and student voice
 
 ### **The Fabricator**
-[→ Open Project](#)  
+[→ Open Project](https://chatgpt.com/g/g-p-692b9cd1a6bc819195984aaf695354b3-fabricator/project)  
 Generate complete academic papers at velocity. Test your ability to distinguish plausible from accurate.
 
 ### **The Fracture Point**
-[→ Open Project](#)  
+[→ Open Project](https://chatgpt.com/g/g-p-692ba412380c81918c8459daf22634d0-fracture-point/project)  
 Find the edge of your expertise through escalating conceptual probes. Discover where you transition from expert to learner.
 
 ---
@@ -54,7 +54,7 @@ Find the edge of your expertise through escalating conceptual probes. Discover w
 
 Want to customize these projects or use them on different LLM platforms (Claude, Gemini, etc.)?
 
-**[→ Access all project instructions in `/made-by-the-blueprint/`](./made-by-the-blueprint/)**
+**[→ Access all project instructions in `/made-by-the-blueprint/`](../made-by-the-blueprint/)**
 
 Each file contains the complete system instructions you can copy into your own custom GPT, Claude Project, or any other LLM interface. Edit and adapt them for your specific courses, disciplines, and pedagogical goals.
 
@@ -71,34 +71,6 @@ Each file contains the complete system instructions you can copy into your own c
 - [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) - Comprehensive guide to effective prompting
 - [OpenAI's Prompt Engineering Documentation](https://platform.openai.com/docs/guides/prompt-engineering) - Best practices from OpenAI
 - [Learn Prompting](https://learnprompting.org/) - Free open-source course on prompt engineering
-
-### Prompting tools
-# 2,500+ ChatGPT Prompt Templates
-
-<aside>
-👉🏻
-
-***Do you want to run prompt sequences automatically and at scale? 
-You can do it with GPT Chain!***
-
-[GPT Chain](https://theveller.gumroad.com/l/GPTChain-byTheVeller-x-Misash)
-
-</aside>
-
-This is a living resource and will change over time to meet the needs of the community. **Bookmark it!**
-
-### [2,500+ ChatGPT Prompt Templates](https://www.notion.so/2-500-ChatGPT-Prompt-Templates-d9541e901b2b4e8f800e819bdc0256da?pvs=21)
-
----
-
-[ChatGPT Prompts Collections](https://www.notion.so/4b65ed147bcb499e9f9459c27605d0e7?pvs=21)
-
-https://app.actions.so/profile-card1/1653967034593x639478142362714100
-
-📩Contact me on [Twitter](https://twitter.com/TheVeller)!
-
-[2,500+ ChatGPT Prompt Templates](https://www.notion.so/5daec237070147e08cc3d327ba20bfde?pvs=21)
-
 
 ### LLMs in Education (Academic Research)
 - [GPT-4 Technical Report](https://arxiv.org/abs/2303.08774) - Understanding capabilities and limitations
