@@ -1,10 +1,6 @@
 # LLM Faculty Workshop: Experiments in Academic Disruption
 
-<<<<<<< HEAD
 **Workshop Date:** 12/16/2025
-=======
-**Workshop Date:** 12/12/2025
->>>>>>> parent of d04f580 (Sync local The Repository files)
 **Facilitator:** Paul Wayland
 
 ---
