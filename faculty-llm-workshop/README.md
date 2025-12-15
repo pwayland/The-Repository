@@ -1,6 +1,6 @@
 # LLM Faculty Workshop: Experiments in Academic Disruption
 
-**Workshop Date:** 12/12/2025
+**Workshop Date:** 12/16/2025
 **Facilitator:** Paul Wayland
 
 ---
