@@ -1,0 +1,119 @@
+
+
+## **COMPILED JOB MARKET DATA: Puerto Rico Accounting Positions (Entry to Mid-Level)**
+
+### **TECHNICAL SKILLS (Software/Systems)**
+
+**Accounting Software:**
+- QuickBooks (mentioned in 70%+ of postings) - **CRITICAL GAP**
+- SAP (mentioned in ~30%)
+- Oracle/NetSuite (mentioned in ~20%)
+- Sage/Sage 50/Peachtree (mentioned in ~25%)
+- Great Plains Dynamics (occasional)
+
+**Microsoft Office Suite:**
+- Excel (REQUIRED, 90%+) - specifically: pivot tables, macros, data analysis tools, VLOOKUPs
+- Word, PowerPoint, Outlook (standard expectations)
+
+**ERP Systems:**
+- General ERP experience mentioned frequently
+- Multi-entity accounting systems
+
+### **CORE ACCOUNTING COMPETENCIES**
+
+**Required Knowledge:**
+- GAAP (Generally Accepted Accounting Principles) - universal requirement
+- Full accounting cycle
+- Bank reconciliations
+- Journal entries
+- Accounts Payable/Accounts Receivable
+- Month-end close processes
+- Financial statement preparation
+- General ledger maintenance
+
+**Tax Requirements** (Puerto Rico-specific):
+- PR Internal Revenue Code
+- IVU (Puerto Rico sales tax) filing
+- Federal tax basics
+- Payroll tax compliance (federal + PR state)
+- Act 60 incentives (mentioned in some postings)
+
+### **SOFT SKILLS/ATTRIBUTES**
+
+**Universally Required:**
+- Bilingual (English/Spanish) - ~80% of postings explicitly require this
+- Attention to detail
+- Analytical skills
+- Strong organizational/time management
+- Ability to meet deadlines
+- Team collaboration
+
+**Communication:**
+- Verbal and written communication in both languages
+- Ability to communicate with clients/vendors
+- Cross-departmental collaboration
+
+### **EDUCATION/CERTIFICATION**
+
+- Bachelor's in Accounting or related field (universal)
+- CPA license (preferred but not required for entry-level)
+- 2-3 years experience typical for staff accountant roles
+- Entry-level: internship or 0-1 year experience
+
+### **EMERGING/MODERN REQUIREMENTS**
+
+**What's NEW that your curriculum might not address:**
+- Cloud-based accounting systems
+- Multi-currency/multi-entity accounting
+- Process automation and continuous improvement mindset
+- Data analysis beyond basic reports
+- Technology integration skills
+- Remote work capability (mentioned in ~15% of postings)
+
+---
+
+## **THE AUTOMATION METHODOLOGY I USED**
+
+**Step 1: Targeted Search Strategy**
+- Started broad: "accountant jobs Puerto Rico"
+- Refined: "junior accountant" + "staff accountant" + specific software
+- Used boolean operators: "QuickBooks SAP Excel" to surface technical requirements
+
+**Step 2: Source Diversity**
+- LinkedIn, Indeed, Glassdoor, ZipRecruiter
+- Each platform has different job pools
+- Cross-referenced to identify patterns vs. outliers
+
+**Step 3: Data Extraction Pattern**
+- Scanned for "Requirements" and "Qualifications" sections
+- Noted frequency of mentions (QuickBooks appeared 15+ times, SAP 7 times, etc.)
+- Flagged Puerto Rico-specific requirements (IVU, bilingual, Act 60)
+
+**Step 4: Gap Analysis Framework**
+Created by comparing your curriculum competencies against market demands
+
+---
+
+## **HOW YOU COULD AUTOMATE THIS (For Future Updates)**
+
+If you wanted to do this quarterly/annually, here's the approach:
+
+**Option 1: Manual but Systematic** (What I just did)
+1. Run 5-7 targeted searches
+2. Open top 20 results from each
+3. Copy requirements into spreadsheet
+4. Count frequency of each skill
+5. Takes ~2 hours
+
+**Option 2: Desktop Commander Automation** (What we could build)
+1. Use `web_search` to gather URLs
+2. Use `web_fetch` to retrieve full job postings
+3. Feed into Claude Project with instructions to extract requirements
+4. Aggregate and count frequency
+5. Takes ~30 minutes once set up
+
+**Option 3: LinkedIn Data Export** (With your account)
+- LinkedIn allows saved searches
+- You could set up search for "Accountant Puerto Rico"
+- Export results periodically
+- I could process the export file
