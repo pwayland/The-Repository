@@ -247,13 +247,12 @@ Our Business Administration curriculum hasn't changed in 8 years. Faculty resist
 ## 📚 EXTERNAL RESOURCES
 
 ### Institutional Planning & Analysis
-- [IPEDS Data Center](https://nces.ed.gov/ipeds/datacenter/) - Compare your institution to peers on enrollment, graduation, finances
 - [Integrated Postsecondary Education Data System](https://nces.ed.gov/ipeds/) - Federal education statistics
+- [IPEDS Data Center](https://nces.ed.gov/ipeds/datacenter/) - Compare your institution to peers on enrollment, graduation, finances
 - [College Scorecard](https://collegescorecard.ed.gov/) - Student outcomes and institutional data
 
 ### Grant Resources
 - [Grants.gov](https://www.grants.gov/) - Federal grant opportunities database
-- [Department of Education Grant Programs](https://www2.ed.gov/fund/landing.jhtml) - ED-specific funding
 - [NSF Funding Opportunities](https://www.nsf.gov/funding/) - STEM and research grants
 - [Foundation Center](https://candid.org/) - Private foundation grant database (subscription)
 
@@ -261,7 +260,7 @@ Our Business Administration curriculum hasn't changed in 8 years. Faculty resist
 - [NCES Fast Facts](https://nces.ed.gov/fastfacts/) - Quick enrollment and completion data
 - [National Student Clearinghouse Research](https://nscresearchcenter.org/) - Enrollment trends and analysis
 - [Complete College America](https://completecollege.org/) - Student success initiatives and data
-- [SHEEO State Higher Education Finance](https://sheeo.org/project/state-higher-education-finance/) - State funding trends
+- [SHEF State Higher Education Finance](https://sheeo.org/project/state-higher-education-finance/) - State funding trends
 
 ### Curriculum & Labor Market
 - [Bureau of Labor Statistics](https://www.bls.gov/) - Employment projections and occupation data
@@ -270,9 +269,9 @@ Our Business Administration curriculum hasn't changed in 8 years. Faculty resist
 - [Burning Glass Labor Insight](https://www.burningglassinstitute.org/) - Real-time labor market analytics
 
 ### AI in Higher Education
-- [EDUCAUSE AI Resources](https://www.educause.edu/research-and-publications/research/topics/ai) - Higher ed AI trends and implementation
+- [EDUCAUSE AI Resources](https://library.educause.edu/topics/infrastructure-and-research-technologies/artificial-intelligence-ai) - Higher ed AI trends and implementation
 - [Inside Higher Ed AI Coverage](https://www.insidehighered.com/news/tech-innovation) - News and analysis
-- [Stanford HAI Education Policy](https://hai.stanford.edu/policy/policy-resources/education) - AI policy in education
+- [Stanford HAI Education Policy](https://hai.stanford.edu/policy/publications) - AI policy in education
 
 ### Strategic Planning
 - [Association for Institutional Research](https://www.airweb.org/) - Data-driven decision making resources
