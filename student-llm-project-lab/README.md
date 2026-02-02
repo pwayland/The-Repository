@@ -26,10 +26,10 @@ Stress-test academic research through adversarial peer review. Upload papers and
 [→ Open Project](https://chatgpt.com/g/g-p-692b573ad0008191a374d5c4da616fd6-grade-whisperer/project)
 Optimize student writing for rubric performance through strategic LLM use
 
-### **Tutor de Fisica**
+### **The Fracture Point**
 
-[→ Open Project](https://chatgpt.com/g/g-p-692065df58b881918609c10dfa2c6e69-tutor-de-fisica/project)
-Learn physics with a supportive 24/7 tutor.
+[→ Open Project](https://chatgpt.com/g/g-p-6980eca4f45c819184d9b2f8375ab3d2-fracture-point/project)  
+Find the edge of your expertise through escalating conceptual probes. Discover where you transition from expert to learner.
 
 ---
 
