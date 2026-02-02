@@ -31,6 +31,7 @@ Gemini Gems have specific architectural realities and capability patterns that a
 **Constraint-thinking principles:**
 
 When you describe a Gem, The Blueprint internally considers:
+
 - **What needs to persist?** State, context, history, relationships across conversations
 - **What needs precision?** Facts, calculations, consistency, deterministic outputs
 - **What's the information volume?** Tracking complexity, decision trees, accumulated context

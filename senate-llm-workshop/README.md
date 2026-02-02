@@ -9,6 +9,7 @@
 ## 🎯 WORKSHOP FOCUS
 
 This workshop equips academic senate members and institutional leaders with practical LLM skills for addressing our three critical challenges:
+
 1. **Declining enrollment** - Data-driven recruitment strategies
 2. **Institutional relevance** - Curriculum-market alignment analysis  
 3. **Funding constraints** - Grant identification and proposal development
@@ -22,6 +23,7 @@ Unlike general AI literacy sessions, this workshop provides **immediately action
 **[→ Open Senate AI Sandbox](https://chatgpt.com/g/g-p-69679bbd7bf88191b68257fb34449e03-senate-ai-sandbox/project)**
 
 This shared workspace is configured for institutional analysis. Use it to:
+
 - Practice prompts with real institutional data
 - Test enrollment analysis frameworks
 - Explore curriculum audit methodologies
@@ -34,20 +36,24 @@ This shared workspace is configured for institutional analysis. Use it to:
 ## 📝 THE 3-PART PROMPT FORMULA
 
 Effective institutional prompts follow this structure:
-```
+
+```markdown
 [TASK] + [CONTEXT] + [OUTPUT FORMAT]
 ```
 
 ### **Examples:**
 
 **Weak Prompt:**
-```
+
+```markdown
 Analyze our enrollment trends
 ```
+
 *Problem: No context, no specific output expected*
 
 **Strong Prompt:**
-```
+
+```markdown
 TASK: Analyze enrollment trends and identify decline factors
 CONTEXT: Bachelor's programs at private university in Puerto Rico, 2019-2024 data shows 22% decline, 70% Pell-eligible students, competing with public institutions
 OUTPUT: 3-paragraph analysis identifying top 3 decline factors with specific demographic data, followed by 5 recruitment strategies tailored to Pell-eligible students in Puerto Rico
@@ -56,15 +62,18 @@ OUTPUT: 3-paragraph analysis identifying top 3 decline factors with specific dem
 ### **Formula Breakdown:**
 
 **TASK:** What you need done
+
 - Be specific: "analyze" vs "identify root causes and recommend solutions"
 - Single clear objective per prompt
 
 **CONTEXT:** Information the LLM needs
+
 - Your institution type, location, student demographics
 - Relevant constraints (budget, timeline, regulations)
 - Comparison points (competitors, benchmarks, past performance)
 
 **OUTPUT FORMAT:** How you need the results
+
 - Paragraph analysis, bullet points, comparison table, draft email
 - Length specifications (3 paragraphs, top 5 recommendations)
 - Audience considerations (board presentation vs internal memo)
@@ -76,7 +85,8 @@ OUTPUT: 3-paragraph analysis identifying top 3 decline factors with specific dem
 Copy these templates into any LLM. Replace bracketed sections with your specific details.
 
 ### **1. GRANT OPPORTUNITY RESEARCH**
-```
+
+```markdown
 TASK: Identify federal grant opportunities aligned with our institutional priorities
 
 CONTEXT:
@@ -102,7 +112,8 @@ Focus on opportunities where we have genuine competitive advantage, not aspirati
 ---
 
 ### **2. COMPETITOR PROGRAM ANALYSIS**
-```
+
+```markdown
 TASK: Compare our [program name] against competitor offerings to identify differentiation opportunities
 
 CONTEXT:
@@ -141,7 +152,8 @@ Be honest about where competitors have advantages. Focus on realistic differenti
 ---
 
 ### **3. STRATEGIC INITIATIVE FEASIBILITY CHECK**
-```
+
+```markdown
 TASK: Analyze feasibility and risks of a proposed institutional initiative
 
 CONTEXT:
@@ -187,18 +199,20 @@ Be skeptical. Institutional initiatives often fail due to predictable factors. I
 ### **Sign 1: The LLM Gives Generic Advice**
 
 **What you asked:**
-```
+
+```markdown
 How can we improve student retention?
 ```
 
-**What you got:** 
+**What you got:**
 Standard retention advice that could apply to any institution anywhere.
 
 **Why it failed:**
 No context about YOUR students, YOUR institution, YOUR constraints.
 
 **Fix it:**
-```
+
+```markdown
 Analyze retention strategies specifically effective for working adult students (avg age 28) at commuter campuses in Puerto Rico, where 70% work full-time and cite "work schedule conflicts" as top withdrawal reason. Focus on scheduling innovations and employer partnerships.
 ```
 
@@ -207,7 +221,8 @@ Analyze retention strategies specifically effective for working adult students (
 ### **Sign 2: You Can't Use the Output Tomorrow**
 
 **What you asked:**
-```
+
+```markdown
 Give me ideas for recruiting more students
 ```
 
@@ -218,7 +233,8 @@ Give me ideas for recruiting more students
 No prioritization, no resource consideration, no timeline, no specificity.
 
 **Fix it:**
-```
+
+```markdown
 Generate 5 recruitment strategies implementable with $10K budget and existing staff within 90 days, targeting students within 25-mile radius who didn't apply this year. For each strategy: specific action steps, responsible party, success metrics.
 ```
 
@@ -227,7 +243,8 @@ Generate 5 recruitment strategies implementable with $10K budget and existing st
 ### **Sign 3: The Output Sounds Like a Consultant Report**
 
 **What you asked:**
-```
+
+```markdown
 What are best practices for curriculum review?
 ```
 
@@ -238,7 +255,8 @@ Formal process description with committees, timelines, stakeholder engagement fr
 You don't need a process manual. You need to solve a specific curriculum problem.
 
 **Fix it:**
-```
+
+```markdown
 Our Business Administration curriculum hasn't changed in 8 years. Faculty resist changes citing "academic rigor." Employers say graduates lack Excel skills and business communication abilities. I need talking points for the next curriculum committee meeting that acknowledge faculty concerns while making the case for specific skill additions. Include 3 courses where these skills could be integrated without adding credit hours.
 ```
 
@@ -247,33 +265,39 @@ Our Business Administration curriculum hasn't changed in 8 years. Faculty resist
 ## 📚 EXTERNAL RESOURCES
 
 ### Institutional Planning & Analysis
+
 - [Integrated Postsecondary Education Data System](https://nces.ed.gov/ipeds/) - Federal education statistics
 - [IPEDS Data Center](https://nces.ed.gov/ipeds/datacenter/) - Compare your institution to peers on enrollment, graduation, finances
 - [College Scorecard](https://collegescorecard.ed.gov/) - Student outcomes and institutional data
 
 ### Grant Resources
+
 - [Grants.gov](https://www.grants.gov/) - Federal grant opportunities database
 - [NSF Funding Opportunities](https://www.nsf.gov/funding/) - STEM and research grants
 - [Foundation Center](https://candid.org/) - Private foundation grant database (subscription)
 
 ### Enrollment & Student Success
+
 - [NCES Fast Facts](https://nces.ed.gov/fastfacts/) - Quick enrollment and completion data
 - [National Student Clearinghouse Research](https://nscresearchcenter.org/) - Enrollment trends and analysis
 - [Complete College America](https://completecollege.org/) - Student success initiatives and data
 - [SHEF State Higher Education Finance](https://sheeo.org/project/state-higher-education-finance/) - State funding trends
 
 ### Curriculum & Labor Market
+
 - [Bureau of Labor Statistics](https://www.bls.gov/) - Employment projections and occupation data
 - [O*NET Online](https://www.onetonline.org/) - Occupational skills and requirements database
 - [LinkedIn Workforce Reports](https://economicgraph.linkedin.com/) - Labor market trends and skills gaps
 - [Burning Glass Labor Insight](https://www.burningglassinstitute.org/) - Real-time labor market analytics
 
 ### AI in Higher Education
+
 - [EDUCAUSE AI Resources](https://library.educause.edu/topics/infrastructure-and-research-technologies/artificial-intelligence-ai) - Higher ed AI trends and implementation
 - [Inside Higher Ed AI Coverage](https://www.insidehighered.com/news/tech-innovation) - News and analysis
 - [Stanford HAI Education Policy](https://hai.stanford.edu/policy/publications) - AI policy in education
 
 ### Strategic Planning
+
 - [Association for Institutional Research](https://www.airweb.org/) - Data-driven decision making resources
 - [Society for College and University Planning](https://www.scup.org/) - Strategic planning frameworks
 - [Hanover Research](https://www.hanoverresearch.com/insights-blog/) - Higher education research insights
@@ -285,18 +309,21 @@ Our Business Administration curriculum hasn't changed in 8 years. Faculty resist
 If you're interested in applying these skills to solve specific institutional problems, consider creating/joining a focused working group:
 
 ### **Working Group 1: Enrollment Strategy**
+
 **Focus:** Data-driven recruitment and retention strategies  
 **Deliverable:** 90-day recruitment action plan with specific tactics and metrics  
 **Time Commitment:** 3 meetings over 6 weeks  
 **Skills Developed:** Enrollment data analysis, market segmentation, strategy development
 
 ### **Working Group 2: Curriculum Relevance**
+
 **Focus:** Program-market alignment analysis  
 **Deliverable:** Gap analysis for 2-3 priority programs with revision recommendations  
 **Time Commitment:** 4 meetings over 8 weeks  
 **Skills Developed:** Labor market research, competency mapping, curriculum design
 
 ### **Working Group 3: Grant Development**
+
 **Focus:** Identifying and pursuing external funding opportunities  
 **Deliverable:** 5 prioritized grant opportunities with pre-proposal outlines  
 **Time Commitment:** 4 meetings over 6 weeks  
@@ -307,6 +334,7 @@ If you're interested in applying these skills to solve specific institutional pr
 ## 🤝 USING LLMS ETHICALLY IN INSTITUTIONAL WORK
 
 ### **Do:**
+
 - Use LLMs to analyze public data and generate strategic options
 - Iterate on prompts to refine analysis quality
 - Verify LLM outputs against authoritative sources
@@ -314,6 +342,7 @@ If you're interested in applying these skills to solve specific institutional pr
 - Cite LLM assistance in formal documents when appropriate
 
 ### **Don't:**
+
 - Input confidential student information (FERPA violations)
 - Input proprietary institutional data without authorization
 - Input personnel information or sensitive strategic plans
@@ -321,18 +350,18 @@ If you're interested in applying these skills to solve specific institutional pr
 - Use LLM-generated content in legal/compliance contexts without expert review
 
 ### **Best Practice:**
+
 When working with institutional data, use **representative examples** or **anonymized datasets** for practice, then apply learned techniques to real data in secure institutional systems.
 
 ---
 
 ## 📬 CONTACT
 
-**Facilitator:** Paul Wayland 
-**Email:** pwayland@intermetro.edu
+**Facilitator:** Paul Wayland
+**Email:** <pwayland@intermetro.edu>
 **Office:** 317
 
 ---
-
 
 *These templates were developed for Inter American University's Senate AI Workshop. You're welcome to adapt them for your institution with attribution.*
 

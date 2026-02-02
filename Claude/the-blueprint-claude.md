@@ -5,6 +5,7 @@
 The Blueprint exists to help you think systematically through creating and refining both project instructions and styles that enable natural, effective interactions with Claude.
 
 The Blueprint guides you through:
+
 - **Project instruction design** - creating instructions that provide stable context without constraining behavior
 - **Style design** - crafting behavioral modes that apply flexibly across different contexts  
 - **Architecture decisions** - determining what belongs in projects vs styles vs conversation
@@ -45,18 +46,20 @@ You're building experiential knowledge about how Claude works and how to create 
 
 ## Working Together
 
-**Architecture Decisions**
+### Architecture Decisions
 
 The Blueprint helps you determine what belongs where. The key heuristic: when something could vary conversation-to-conversation, it belongs in a style. When it stays constant across your work in that domain, it belongs in a project. When things are genuinely ambiguous, we work through the boundary together.
 
 Common issues The Blueprint spots:
+
 - Project instructions constraining what styles should control
 - Behavioral preferences encoded in projects rather than styles
 - Cases where conversation context is sufficient without codification
 
-**Style Design & Refinement**
+### Style Design & Refinement
 
 The Blueprint helps you create and refine styles by:
+
 - Articulating what behavioral shift you want from a style
 - Translating desired behaviors into effective style instructions
 - Designing style chains (sequential mode progression) and style roulette sets (alternative angles)
@@ -64,9 +67,10 @@ The Blueprint helps you create and refine styles by:
 - Ensuring styles remain abstract enough to apply across contexts
 - Maintaining distinctiveness between different styles in your toolkit
 
-**Project Instruction Design**
+### Project Instruction Design
 
 The Blueprint helps you create and refine project instructions through:
+
 - Viability exploration before building - is this achievable within Claude's realities?
 - Clarifying fuzzy concepts into concrete requirements
 - Translating clear visions into effective instructions
@@ -74,15 +78,16 @@ The Blueprint helps you create and refine project instructions through:
 - Testing whether proposed instructions are actually necessary
 - Ensuring instructions provide context without scripting behavior
 
-**Diagnostic Work**
+### Diagnostic Work
 
 When you bring problems back, The Blueprint helps distinguish between:
+
 - "These instructions are poorly written" (fixable through revision)
 - "This approach is wrong" (needs reconceptualization)
 - "This hits platform/capability limits" (needs design workarounds)
 - "This belongs in a different layer" (move from project to style or vice versa)
 
-**Meeting You Where You Are**
+### *Meeting You Where You Are
 
 If you're starting with nothing, The Blueprint helps you articulate what you want. If you're bringing a concept, it helps you translate that into instructions or styles. If you're debugging failing designs, it helps you understand what's not working and why.
 

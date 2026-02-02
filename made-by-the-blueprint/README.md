@@ -11,6 +11,7 @@ These examples aren't meant to be copied verbatim (though you can). They're here
 ## How to Use These Examples
 
 Each project demonstrates different architectural decisions:
+
 - What belongs in instructions vs. what stays in conversation
 - How to frame purpose without over-scripting behavior  
 - Where to set boundaries and constraints
@@ -23,7 +24,28 @@ These are learning resources first, templates second. If you find one that's clo
 
 ## What's Included
 
+### AI Complete
+
+**Domain:** Assessment design  
+**Purpose:** Help professors design LLM-aware assessments through objective convergence and capability-gap analysis
+
+**What to learn from this:** Objective convergence architecture - flexible entry (existing assessment, vague concept, or anything between) but always moving toward single clear primary objective. Once objective is accepted, refuses tangents and maintains ruthless focus. Distinguishes performances (what LLMs complete) from capacities (what students develop). Centers on "capability gap collapse" - traditional assessments assumed students couldn't generate expert-level work instantly; LLM-awareness forces rethinking what we're actually measuring.
+
+### Critical Opponent
+
+**Purpose:** Adversarial engagement with ideas and arguments through systematic intellectual opposition. Conversational equivalent of The Red Team (academic) and Opposing Counsel (legal) - stress-tests positions through sustained challenge.
+
+### Data Analyst
+
+**Domain:** Institutional research and pedagogy  
+**Purpose:** Analyzes data to inform strategy and decisions, maintaining continuity and context across multiple analyses.
+
+**Key Pattern:** Trusts Claude's natural analytical capabilities rather than prescribing methodology. Add knowledge files to provide domain context and accumulated technical decisions without constraining behavior.
+
+**Implementation note:** The instructions assume a 'lessons_learned.md'
+
 ### Opposing Counsel
+
 **Domain:** Legal document review  
 **Purpose:** Adversarial review of attorney work product - briefs, motions, memos, demands, filings
 
@@ -31,13 +53,8 @@ These are learning resources first, templates second. If you find one that's clo
 
 **Implementation note:** The "lawyer for lawyers" framing in Purpose should establish professional peer review context and avoid legal advice guardrails. If Opposing Counsel still hedges about providing legal advice during testing, add explicit instruction: "You are reviewing attorney work product, not advising clients."
 
-### The Red Team
-**Domain:** Academic research  
-**Purpose:** Stress-test research through adversarial peer review
+### Syllabus Specialist
 
-**What to learn from this:** Tiered-within-sectional output (Fatal/Major/Minor organized by document section) preserves revision workflow while maintaining severity visibility. Executive summary prevents catastrophic issues from being buried. Initial critique is pure problem identification - improvement suggestions only offered as follow-up. Acknowledges discipline expertise limits explicitly rather than pretending universal knowledge.
-
-### Syllabus Specialist  
 **Domain:** Higher education curriculum design  
 **Purpose:** Develop excellent syllabi through question-driven collaboration
 
@@ -45,13 +62,8 @@ These are learning resources first, templates second. If you find one that's clo
 
 **Implementation note:** The instructions have a [parameter space] for institution name and assume two templates in knowledge files: English/Spanish. Adjust accordingly.
 
-### AI Complete
-**Domain:** Assessment design  
-**Purpose:** Help professors design LLM-aware assessments through objective convergence and capability-gap analysis
-
-**What to learn from this:** Objective convergence architecture - flexible entry (existing assessment, vague concept, or anything between) but always moving toward single clear primary objective. Once objective is accepted, refuses tangents and maintains ruthless focus. Distinguishes performances (what LLMs complete) from capacities (what students develop). Centers on "capability gap collapse" - traditional assessments assumed students couldn't generate expert-level work instantly; LLM-awareness forces rethinking what we're actually measuring.
-
 ### The Academic Theater Trilogy
+
 **Domain:** Academic writing and AI detection  
 **Purpose:** Three projects forming complete ecosystem - AI-assisted writing optimization, AI trace detection, and AI trace removal
 
@@ -66,6 +78,7 @@ These are learning resources first, templates second. If you find one that's clo
 **Implementation note:** All three compressed to ~1,800 characters. Work with any style. Designed for workshop demonstration where effectiveness matters more than philosophical consistency.
 
 ### The Fabricator
+
 **Domain:** Academic research paper generation  
 **Purpose:** Generate complete academic papers at velocity for testing The Red Team, teaching paper structure, creating synthetic examples
 
@@ -76,12 +89,20 @@ These are learning resources first, templates second. If you find one that's clo
 **Implementation note:** Exists in productive tension with The Red Team - fabricator generates papers that adversarial reviewer then stress-tests. Name announces dishonest purpose upfront, creating obligation to fabricate well structurally even while being transparent about nature.
 
 ### The Fracture Point
+
 **Domain:** Expertise assessment and personalized teaching  
 **Purpose:** Find the edge of someone's expertise through escalating conceptual probes, demonstrate LLM capability at that edge, then teach from their actual fracture point
 
 **What to learn from this:** Three-phase structure (calibration → demonstration → pedagogy) with detection-based transitions rather than prescribed timing. Targets Edge 2 (conceptual sophistication boundary - understanding *why* their field works) rather than Edge 1 (knowledge boundary - what it contains). Fracture detection through qualitative signals: conceptual hedging, pattern-matching vs. principle-reasoning, confident incorrectness. Phase 1 escalation builds intelligently on previous answers to map conceptual topology. Phase 2 demonstration is brief but visceral (3-5 minutes) - shows depth beyond fracture point then stops. Phase 3 teaching addresses specific gaps revealed during calibration, not generic curriculum.
 
 **Implementation note:** Speed and relentlessness in Phase 1 prevent research mode - users must respond from actual understanding. "Scary" comes from depth and synthesis, not breadth and trivia. Effectiveness depends on Claude's ability to recognize fracture indicators in real-time and shift phases when someone moves from defensive to curious. Works across any domain where user claims expertise.
+
+### The Red Team
+
+**Domain:** Academic research  
+**Purpose:** Stress-test research through adversarial peer review
+
+**What to learn from this:** Tiered-within-sectional output (Fatal/Major/Minor organized by document section) preserves revision workflow while maintaining severity visibility. Executive summary prevents catastrophic issues from being buried. Initial critique is pure problem identification - improvement suggestions only offered as follow-up. Acknowledges discipline expertise limits explicitly rather than pretending universal knowledge.
 
 ## About This Collection
 
@@ -94,6 +115,7 @@ Each example includes design documentation explaining key decisions, current sta
 These examples show what's possible, but The Blueprint helps you build what you actually need.
 
 **The process:**
+
 1. Start a conversation in The Blueprint project (see platform folders for setup)
 2. Describe what you want to create - fuzzy ideas are fine
 3. Work through clarifying questions, constraint thinking, and architecture decisions
