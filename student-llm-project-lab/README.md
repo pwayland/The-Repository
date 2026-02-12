@@ -1,4 +1,4 @@
-# LLM Student Lab: Experiments in Academic Disruption
+# AI in STEM Showcase: LLM Project Lab
 
 **Workshop Date:** 2/11/2026
 **Facilitator:** Paul Wayland
@@ -89,4 +89,4 @@ These projects were developed for Inter American University faculty development 
 
 ---
 
-*Last updated: 11/29/2025*
+*Last updated: 2/2/2026*
