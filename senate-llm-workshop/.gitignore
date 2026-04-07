@@ -1,0 +1,7 @@
+drafts/
+scripts/
+private/
+*.pyc
+__pycache__/
+~$*
+.~lock.*
