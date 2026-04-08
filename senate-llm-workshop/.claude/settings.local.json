@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l \"C:/Users/paulw/The-Repository/senate-llm-workshop/catalog/\"*.md)"
+    ]
+  }
+}
