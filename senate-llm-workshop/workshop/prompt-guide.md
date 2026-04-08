@@ -106,7 +106,7 @@ graduates for what employers actually demand.
 
 CONTEXT:
 - [Attach: programs-business-1.md — the Accounting BBA structure]
-- [Attach: accounting-positions-1-2026 — job market data]
+- [Attach: accounting-positions-1-2026.md — job market data]
 - The program has a single 3-credit technology course (ACCT 3030)
   covering all software competencies.
 - 70%+ of job postings require QuickBooks proficiency.

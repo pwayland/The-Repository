@@ -63,7 +63,7 @@ Curated from public federal data sources.
 | File | Coverage |
 |------|----------|
 | [IPEDS Export](data/CSV_182026-218.csv) | Raw IPEDS institutional data 2020–2024 |
-| [Accounting Positions](data/accounting-positions-1-2026) | Job market compilation: PR accounting positions, skill frequencies |
+| [Accounting Positions](data/accounting-positions-1-2026.md) | Job market compilation: PR accounting positions, skill frequencies |
 
 ---
 
