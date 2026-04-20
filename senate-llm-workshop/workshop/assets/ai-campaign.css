@@ -1,0 +1,216 @@
+/* ==========================================================================
+   AI Campaign — shared design system
+   Inter Metro · Senate AI Workshop · Paul Wayland
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap");
+
+:root{
+  /* ─── brand ─── */
+  --im-green:      #256D36;   /* logo green */
+  --im-green-2:    #2E8540;   /* brighter accent for dark bg */
+  --im-green-dim:  #1a4e27;
+  --im-yellow:     #F0CE5A;   /* logo yellow */
+  --im-yellow-2:   #F5DB7F;
+
+  /* ─── surfaces ─── */
+  --ink:           #0B0C0C;   /* near-black canvas */
+  --ink-2:         #131414;   /* card bg */
+  --ink-3:         #1E1F20;   /* raised */
+  --rule:          #ffffff14;
+  --rule-2:        #ffffff24;
+
+  /* ─── text ─── */
+  --fg:            #F4F1EA;   /* warm paper-white */
+  --fg-2:          #C9C6BF;
+  --fg-3:          #8A8780;
+  --fg-muted:      #5A5852;
+
+  /* ─── semantic ─── */
+  --accent:        var(--im-green-2);
+  --accent-ink:    #0B0C0C;
+  --signal:        var(--im-yellow);
+
+  /* ─── type ─── */
+  --serif: "Instrument Serif", "Fraunces", Georgia, serif;
+  --sans:  "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ── reset ── */
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--ink); color:var(--fg); }
+body{
+  font-family:var(--sans);
+  font-size:14px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── grain / paper-ish noise for the dark canvas (very subtle) ── */
+.bg-grain{
+  position:absolute; inset:0; pointer-events:none; z-index:0; opacity:.35;
+  background-image:
+    radial-gradient(circle at 10% 10%, #ffffff05 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, #ffffff05 0%, transparent 40%);
+}
+
+/* ── typography primitives ── */
+.h-display{
+  font-family:var(--serif);
+  font-weight:400;
+  font-style:italic;
+  letter-spacing:-.015em;
+  line-height:.98;
+}
+.h-display-roman{
+  font-family:var(--serif);
+  font-weight:400;
+  letter-spacing:-.015em;
+  line-height:1;
+}
+.mono-eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--fg-3);
+  font-weight:500;
+}
+.mono-label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--fg-3);
+}
+
+/* ── dotted i — the brand signature ───────────────────────────────────
+   Usage: <span class="dot-i">i</span>  — puts a yellow dot above any glyph
+   Or   : <span class="sig-dot"></span>  — standalone dot
+   ─────────────────────────────────────────────────────────────────── */
+.dot-i{
+  position:relative;
+  display:inline-block;
+  color:inherit;
+}
+.dot-i::before{
+  content:"";
+  position:absolute;
+  left:50%; top:-.12em;
+  transform:translateX(-50%);
+  width:.26em; height:.26em;
+  background:var(--signal);
+  border-radius:50%;
+}
+.sig-dot{
+  display:inline-block;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--signal);
+  box-shadow:0 0 0 0 var(--signal);
+  animation:sig-pulse 2.4s ease-in-out infinite;
+  vertical-align:middle;
+}
+@keyframes sig-pulse{
+  0%,100%{ box-shadow:0 0 0 0 #F0CE5A55; }
+  50%    { box-shadow:0 0 0 6px #F0CE5A00; }
+}
+
+/* ── inter-metro wordmark (recreated in CSS, matches the logo) ── */
+.im-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:0;
+  font-family:var(--sans);
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1;
+  user-select:none;
+}
+.im-mark .inter{
+  color:var(--im-green-2);
+  font-size:1em;
+  padding:.12em 0;
+  position:relative;
+}
+.im-mark .inter::before{
+  /* dot over the I */
+  content:"";
+  position:absolute;
+  left:.14em; top:-.22em;
+  width:.20em; height:.20em;
+  background:var(--im-yellow);
+  border-radius:50%;
+}
+.im-mark .metro{
+  color:var(--im-green-2);
+  background:var(--im-yellow);
+  padding:.15em .5em .18em;
+  font-size:.62em;
+  letter-spacing:.18em;
+  margin-left:.15em;
+  border-radius:2px;
+}
+
+/* ── buttons ── */
+.btn{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:600;
+  padding:10px 16px;
+  background:transparent;
+  color:var(--fg);
+  border:1px solid var(--rule-2);
+  border-radius:4px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:background .12s, border-color .12s, color .12s;
+}
+.btn:hover:not(:disabled){ background:var(--ink-3); border-color:var(--fg-3); }
+.btn:disabled{ opacity:.5; cursor:not-allowed; }
+.btn-primary{
+  background:var(--accent);
+  color:var(--accent-ink);
+  border-color:var(--accent);
+}
+.btn-primary:hover:not(:disabled){
+  background:var(--im-yellow);
+  color:var(--ink);
+  border-color:var(--im-yellow);
+}
+.btn-primary .kbd{
+  font-size:10px;
+  border:1px solid #00000033;
+  padding:2px 6px;
+  border-radius:3px;
+  letter-spacing:0;
+  background:#00000022;
+}
+
+/* ── chips / tags ── */
+.chip{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--mono); font-size:11px;
+  padding:3px 8px;
+  background:var(--ink-3);
+  border:1px solid var(--rule);
+  color:var(--fg-2);
+  border-radius:3px;
+}
+.chip-muted{ opacity:.4; text-decoration:line-through; }
+
+/* ── thin rule ── */
+.rule{ height:1px; background:var(--rule); border:0; }
+
+/* ── scrollbar ── */
+::-webkit-scrollbar{ width:8px; height:8px; }
+::-webkit-scrollbar-thumb{ background:var(--rule-2); border-radius:4px; }
+::-webkit-scrollbar-track{ background:transparent; }
+
+/* ── selection ── */
+::selection{ background:var(--signal); color:var(--ink); }

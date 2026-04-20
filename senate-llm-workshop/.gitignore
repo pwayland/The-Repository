@@ -1,6 +1,7 @@
 drafts/
 scripts/
 private/
+local/
 *.pyc
 __pycache__/
 ~$*

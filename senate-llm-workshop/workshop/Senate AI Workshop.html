@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Senate AI Workshop · Inter Metro</title>
+<link rel="stylesheet" href="assets/ai-campaign.css">
+<script src="deck-stage.js"></script>
+<style>
+html,body{ background:#000; overflow:hidden; }
+
+/* ── slide base ── */
+section{
+  background:var(--ink);
+  color:var(--fg);
+  padding:90px 110px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+section::before{
+  /* subtle grid behind everything */
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(#ffffff04 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff04 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events:none;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+}
+
+/* corner chrome */
+.chrome{
+  position:absolute; left:0; right:0;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0 48px;
+  font-family:var(--mono); font-size:24px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--fg-3);
+  pointer-events:none;
+}
+.chrome.top{ top:36px; }
+.chrome.bot{ bottom:36px; }
+.chrome .im-mark{ font-size:28px; }
+.chrome .phase{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--fg-2);
+}
+.chrome .phase .sig-dot{ width:10px; height:10px; }
+.chrome .num{
+  font-variant-numeric:tabular-nums;
+  color:var(--fg-2);
+}
+.chrome .num em{ color:var(--im-yellow); font-style:normal; }
+
+/* ── display type ── */
+.kicker{
+  font-family:var(--mono); font-size:24px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--im-yellow); margin-bottom:40px;
+  display:inline-flex; align-items:center; gap:14px;
+}
+.kicker .sig-dot{ width:10px; height:10px; }
+
+h1.display{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:140px; line-height:.92; letter-spacing:-.02em;
+  margin:0;
+}
+h1.display .roman{ font-style:normal; }
+h1.display em{ color:var(--im-yellow); font-style:italic; }
+
+h2.display{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:96px; line-height:.95; letter-spacing:-.02em;
+  margin:0 0 48px;
+}
+h2.display em{ color:var(--im-yellow); font-style:italic; }
+h2.display .roman{ font-style:normal; }
+
+h3.section-title{
+  font-family:var(--serif); font-weight:400;
+  font-size:56px; line-height:1; letter-spacing:-.015em;
+  margin:0 0 40px; color:var(--fg);
+}
+h3.section-title em{ color:var(--im-yellow); font-style:italic; }
+
+/* ── formula display ── */
+.formula{
+  font-family:var(--mono);
+  font-size:60px;
+  letter-spacing:-.005em;
+  line-height:1.25;
+  color:var(--fg-3);
+  font-weight:500;
+}
+.formula .tok{ color:var(--fg-3); padding:4px 0; transition:color .2s; }
+.formula .tok.active{ color:var(--im-yellow); position:relative; }
+.formula .tok.active::before{
+  content:"";
+  position:absolute; left:-8px; right:-8px;
+  bottom:-4px; height:3px; background:var(--im-yellow);
+}
+.formula .op{ color:var(--fg-muted); margin:0 .15em; }
+
+/* definition card (task: what you need done) */
+.def-card{
+  margin-top:48px;
+  display:grid; grid-template-columns:auto 1fr; gap:24px 36px;
+  max-width:1200px;
+}
+.def-card dt{
+  font-family:var(--mono); font-size:22px; letter-spacing:.04em;
+  color:var(--im-yellow); font-weight:600;
+  padding-top:2px;
+}
+.def-card dd{
+  font-family:var(--serif); font-size:38px; line-height:1.2; font-weight:400; color:var(--fg);
+  margin:0;
+}
+
+/* quote list */
+.qlist{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; }
+.qlist li{
+  font-family:var(--serif); font-size:34px; line-height:1.3; color:var(--fg);
+  padding:16px 22px;
+  border-left:3px solid var(--im-yellow);
+  background:var(--ink-2);
+}
+.qlist li em{ color:var(--im-yellow); font-style:italic; }
+
+/* prompt block */
+.prompt-block{
+  background:var(--ink-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:32px 40px;
+  font-family:var(--mono);
+  font-size:24px;
+  line-height:1.55;
+  color:var(--fg-2);
+  max-width:1400px;
+}
+.prompt-block .kw{ color:var(--im-yellow); font-weight:600; letter-spacing:.06em; }
+.prompt-block .hl{ color:var(--fg); font-weight:600; }
+
+/* signs list */
+.signs{ display:grid; gap:24px; margin-top:24px; }
+.signs .sign{
+  display:grid; grid-template-columns:auto 1fr; gap:28px;
+  border-top:1px solid var(--rule); padding-top:24px;
+}
+.signs .sign:first-child{ border-top:none; padding-top:0; }
+.signs .sign .n{
+  font-family:var(--serif); font-style:italic; color:var(--im-yellow);
+  font-size:72px; line-height:.85; min-width:80px;
+}
+.signs .sign .t{
+  font-family:var(--serif); font-size:38px; line-height:1.25; color:var(--fg);
+}
+.signs .sign .t em{ color:var(--im-yellow); font-style:italic; }
+.signs .sign .t small{
+  display:block; margin-top:8px;
+  font-family:var(--mono); font-size:16px; letter-spacing:.04em;
+  color:var(--fg-3); font-weight:400;
+}
+
+/* enrollment table */
+.enroll-table{
+  border-collapse:collapse; width:100%; max-width:1400px; margin-top:32px;
+  font-family:var(--mono);
+}
+.enroll-table th, .enroll-table td{
+  padding:22px 28px; text-align:left;
+  border-bottom:1px solid var(--rule);
+  font-variant-numeric:tabular-nums;
+}
+.enroll-table th{
+  font-size:14px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--fg-3); font-weight:600; border-bottom:1px solid var(--rule-2);
+}
+.enroll-table td{ font-size:28px; color:var(--fg); }
+.enroll-table tr.hero td{ font-family:var(--serif); font-size:44px; font-style:italic; color:var(--im-yellow); }
+.enroll-table tr.hero td:first-child{ font-style:normal; color:var(--im-yellow); }
+.enroll-table tfoot td{
+  font-size:16px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-3);
+  border-bottom:none; padding-top:20px;
+}
+
+/* big stat (for enrollment punch) */
+.big-stat{
+  display:flex; align-items:baseline; gap:36px; margin-top:40px;
+}
+.big-stat .num{ font-family:var(--serif); font-size:240px; line-height:.85; color:var(--im-yellow); font-style:italic; letter-spacing:-.03em; }
+.big-stat .lbl{ font-family:var(--mono); font-size:20px; letter-spacing:.22em; text-transform:uppercase; color:var(--fg-2); max-width:420px; line-height:1.5; }
+
+/* landscape list */
+.lscape{ display:grid; grid-template-columns:auto 1fr; gap:16px 36px; align-items:baseline; margin-top:8px; }
+.lscape .cat{
+  font-family:var(--mono); font-size:15px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--im-yellow); font-weight:600; padding-top:6px;
+  white-space:nowrap;
+}
+.lscape .val{
+  font-family:var(--mono); font-size:19px; line-height:1.55; color:var(--fg-2);
+}
+.lscape .val b{ color:var(--fg); font-weight:600; }
+
+/* burnout stages */
+.stages{ counter-reset:st; display:flex; flex-direction:column; gap:14px; }
+.stages .st{
+  counter-increment:st;
+  display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:baseline;
+  padding:18px 0; border-top:1px solid var(--rule);
+}
+.stages .st:first-child{ border-top:none; }
+.stages .st::before{
+  content: counter(st, decimal-leading-zero);
+  font-family:var(--mono); font-size:22px; color:var(--fg-muted); font-weight:500;
+  letter-spacing:.04em;
+}
+.stages .st .k{ font-family:var(--serif); font-size:48px; font-style:italic; color:var(--im-yellow); line-height:1; }
+.stages .st .v{ font-family:var(--mono); font-size:22px; color:var(--fg-2); line-height:1.45; }
+.stages .st .grid{ display:grid; grid-template-columns:340px 1fr; gap:40px; align-items:center; }
+
+/* closing punch */
+.punch{
+  margin-top:48px;
+  font-family:var(--serif); font-style:italic;
+  font-size:48px; line-height:1.2; color:var(--fg);
+  max-width:1400px;
+}
+.punch em{ color:var(--im-yellow); }
+
+/* helper — 2-col layout for any slide */
+.two{
+  display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:24px;
+}
+.two > div > h4{
+  font-family:var(--mono); font-size:16px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--im-yellow); margin:0 0 18px;
+}
+.two > div > p{
+  font-family:var(--serif); font-size:30px; line-height:1.3; color:var(--fg); margin:0;
+}
+
+/* title slide */
+.title-slide{
+  background: radial-gradient(ellipse at 30% 40%, #143218 0%, var(--ink) 70%);
+  padding:0;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+}
+.title-slide .chrome.top{ position:relative; top:auto; padding:48px 80px 0; }
+.title-slide .tcenter{
+  display:flex; flex-direction:column; justify-content:center; padding:40px 80px;
+}
+.title-slide h1{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:164px; line-height:.94; letter-spacing:-.03em; margin:0;
+}
+.title-slide h1 .roman{ font-style:normal; color:var(--fg); }
+.title-slide h1 .accent{ color:var(--im-yellow); }
+.title-slide .sub{
+  font-family:var(--mono); font-size:24px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--fg-2); margin-top:40px; max-width:900px; line-height:1.6;
+}
+.title-slide .byline{
+  padding:32px 80px 48px;
+  display:flex; justify-content:space-between; align-items:flex-end;
+  font-family:var(--mono); font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--fg-3);
+}
+.title-slide .byline b{ color:var(--fg); font-weight:600; }
+
+/* simple content slide scaffold */
+.slide-body{ flex:1; display:flex; flex-direction:column; justify-content:flex-start; }
+
+/* section divider slide */
+.divider-slide{
+  background: var(--ink);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.divider-slide h2{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:160px; line-height:.95; letter-spacing:-.025em; margin:0;
+  color:var(--fg);
+}
+.divider-slide h2 em{ color:var(--im-yellow); font-style:italic; }
+.divider-slide .n{
+  font-family:var(--mono); font-size:24px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--im-yellow); margin-bottom:40px;
+  display:inline-flex; align-items:center; gap:16px;
+}
+
+/* QR-ish callout */
+.callout{
+  display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center; margin-top:48px;
+  max-width:1500px;
+}
+.callout .m{ font-family:var(--serif); font-size:40px; line-height:1.2; }
+.callout .m em{ color:var(--im-yellow); font-style:italic; }
+</style>
+</head>
+<body>
+
+<!-- Speaker notes (from your .pptx) -->
+<script type="application/json" id="speaker-notes">
+[
+  "Welcome. I don't know what I'm doing and you're following me. That's where we're at with AI — and that's the honest frame for this workshop. Two hours. Platform-agnostic. You leave with something you'll use on Monday.",
+  "The goal is to leave with something you'll actually use on Monday. Not theory. Not a list of platforms. A method you can apply to the work already on your desk.",
+  "Most prompt guidance starts here: Task, Context, Output Format. This is the baseline. It works. It's the difference between 'analyze our enrollment' and something you can act on. But it's not enough.",
+  "Task. What you need done. Be specific about the verb and the object. Not 'help me with retention' — 'analyze' what, for whom, producing what.",
+  "Context. Information the model needs to do the task well. This is the leverage point. This is where the workshop lives.",
+  "Output format. How you need results delivered. A bullet list, a table, a score with justification, a 300-word memo. Specify it. The default is mush.",
+  "Adequate is not enough. To move from adequate to genuinely useful, add two more: Constraints, and Role.",
+  "Constraints are what the model should NOT do. 'Do not suggest strategies requiring budget increases.' 'Focus only on programs with enrollment below 50.' 'Do not hedge.' Without these, the model defaults to diplomatic consultant-speak.",
+  "Role shifts perspective. A skeptical reviewer analyzes the same data differently than a supportive advisor. Push the model. Ground yourself in your own experience. Break it. That's when you learn what it can and can't do.",
+  "This is the same prompt you just saw — with context added. Private university. Puerto Rico. 40% decline. 49% adults. 70% Pell-eligible. Work-schedule conflicts. Watch what happens when the model has this instead of guessing.",
+  "Three signs your prompt is wrong. Generic output — you forgot context. Unusable output — you forgot constraints. Consultant-speak — you asked for best practices instead of solving a specific problem. Meanwhile, the neighboring institution is using ChatGPT to optimize recruitment while we're still debating the amendment to the policy on…",
+  "The numbers. 6,826 students in 2020. 4,101 in 2024. Forty percent of the student body disappeared. This is not a trend. This is a crisis in progress. We're making small adjustments and doing business as usual. What if, instead of needing better execution of the current model — we need a different model, and LLMs make the transition possible?",
+  "The landscape you're expected to learn. Let me give you a partial list. Foundation models from five major providers…",
+  "…more models. More providers. Open source. Proprietary. Chinese. American. European. Every month a new one.",
+  "Coding tools. Image, video, audio. This slide is already outdated by the time I'm showing it to you.",
+  "Retrieval. Agents. Orchestration. Fine-tuning. Infrastructure. These are entire subfields.",
+  "Evaluation. Safety. Emerging capabilities. This list is already outdated. No one person can learn all of this. No one should try.",
+  "AI Burnout — Type 1. The catching-up trap. Awareness that something is changing. Effort to keep up. Recognition the gap is widening. Dread. Exhaustion. This is not a personal failing. It's structural. The productive response is acceptance — depth over breadth.",
+  "AI Burnout — Type 2. The strategic thinking trap. Better thinking produces better AI output. Better output rewards more thinking. Hours disappear. 30 minutes becomes 4. This is as cognitively demanding as surgery or air traffic control, and we have no institutional norms around it yet. Questions?"
+]
+</script>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ── 1 · Title ───────────────────────────────────────────── -->
+  <section class="title-slide" data-label="Senate AI Workshop">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>AI Campaign · 2026</span>
+    </div>
+    <div class="tcenter">
+      <div class="kicker"><span class="sig-dot"></span>Senate AI Workshop</div>
+      <h1>
+        Strateg<span class="accent">i</span>c<br/>
+        <span class="roman">LLM applications</span><br/>
+        for institutional<br/>
+        <em>transformation.</em>
+      </h1>
+      <div class="sub">A two-hour working session for the Academic Senate. You leave with a method, not a tool list.</div>
+    </div>
+    <div class="byline">
+      <span>Paul Wayland · Inter American University · Metro Campus</span>
+      <span><b>2026</b></span>
+    </div>
+  </section>
+
+  <!-- ── 2 · Intent ──────────────────────────────────────────── -->
+  <section data-label="Intent">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Senate AI Workshop</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>02</em> / 19</span><span>Intent</span></div>
+    <div class="slide-body" style="justify-content:center">
+      <h1 class="display">
+        Leave with something<br/>
+        you'll actually use<br/>
+        <em>on Monday.</em>
+      </h1>
+    </div>
+  </section>
+
+  <!-- ── 3 · Formula intro ─────────────────────────────────── -->
+  <section data-label="The Starting Formula">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Prompt Guide</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>03</em> / 19</span><span>The Starting Formula</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
+    <h2 class="display">From nothing<br/>to <em>adequate.</em></h2>
+    <div class="formula">
+      <span class="tok">TASK</span> <span class="op">+</span>
+      <span class="tok">CONTEXT</span> <span class="op">+</span>
+      <span class="tok">OUTPUT&nbsp;FORMAT</span>
+    </div>
+  </section>
+
+  <!-- ── 4 · Task ─────────────────────────────────────────── -->
+  <section data-label="Task">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>04</em> / 19</span><span>Task</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
+    <div class="formula">
+      <span class="tok active">TASK</span> <span class="op">+</span>
+      <span class="tok">CONTEXT</span> <span class="op">+</span>
+      <span class="tok">OUTPUT&nbsp;FORMAT</span>
+    </div>
+    <dl class="def-card">
+      <dt>Task:</dt>
+      <dd>What you need done. A specific verb, a specific object, a specific deliverable.</dd>
+    </dl>
+  </section>
+
+  <!-- ── 5 · Context ───────────────────────────────────────── -->
+  <section data-label="Context">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>05</em> / 19</span><span>Context</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
+    <div class="formula">
+      <span class="tok">TASK</span> <span class="op">+</span>
+      <span class="tok active">CONTEXT</span> <span class="op">+</span>
+      <span class="tok">OUTPUT&nbsp;FORMAT</span>
+    </div>
+    <dl class="def-card">
+      <dt>Task:</dt>
+      <dd style="color:var(--fg-3); font-size:28px">What you need done.</dd>
+      <dt>Context:</dt>
+      <dd>The information the model needs to do it well. Your institution. Your data. Your constraints.</dd>
+    </dl>
+  </section>
+
+  <!-- ── 6 · Output ─────────────────────────────────────────── -->
+  <section data-label="Output Format">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>06</em> / 19</span><span>Output Format</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
+    <div class="formula">
+      <span class="tok">TASK</span> <span class="op">+</span>
+      <span class="tok">CONTEXT</span> <span class="op">+</span>
+      <span class="tok active">OUTPUT&nbsp;FORMAT</span>
+    </div>
+    <dl class="def-card">
+      <dt>Task:</dt>
+      <dd style="color:var(--fg-3); font-size:28px">What you need done.</dd>
+      <dt>Context:</dt>
+      <dd style="color:var(--fg-3); font-size:28px">The information the model needs.</dd>
+      <dt>Output:</dt>
+      <dd>How results are delivered. Table, score, memo, bullets, 300-word draft. Specify it.</dd>
+    </dl>
+  </section>
+
+  <!-- ── 7 · Beyond formula ─────────────────────────────────── -->
+  <section data-label="Beyond the Formula">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Prompt Guide</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>07</em> / 19</span><span>Beyond the Formula</span></div>
+    <div class="kicker"><span class="sig-dot"></span>Beyond the formula</div>
+    <h2 class="display">From adequate<br/>to <em>useful.</em></h2>
+    <div class="formula" style="font-size:44px">
+      <span class="tok">TASK</span> <span class="op">+</span>
+      <span class="tok">CONTEXT</span> <span class="op">+</span>
+      <span class="tok">OUTPUT</span>
+      <span class="op">+</span>
+      <span class="tok">CONSTRAINTS</span> <span class="op">+</span>
+      <span class="tok">ROLE</span>
+    </div>
+  </section>
+
+  <!-- ── 8 · Constraints ───────────────────────────────────── -->
+  <section data-label="Constraints">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Beyond the Formula</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>08</em> / 19</span><span>Constraints</span></div>
+    <div class="kicker"><span class="sig-dot"></span>Constraints — what it shouldn't do</div>
+    <h3 class="section-title">Tell it what <em>not</em> to do.</h3>
+    <ul class="qlist">
+      <li>"Do not suggest strategies requiring <em>budget increases.</em>"</li>
+      <li>"Focus only on programs with <em>enrollment below 50</em> students."</li>
+      <li>"<em>Do not hedge.</em> If the data says a program is failing, say so."</li>
+    </ul>
+  </section>
+
+  <!-- ── 9 · Role ─────────────────────────────────────────── -->
+  <section data-label="Role">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Beyond the Formula</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>09</em> / 19</span><span>Role</span></div>
+    <div class="kicker"><span class="sig-dot"></span>Role — whose perspective</div>
+    <h3 class="section-title">Break it. <em>Adversarial beats supportive.</em></h3>
+    <ul class="qlist">
+      <li>"You are a <em>skeptical accreditation reviewer.</em>"</li>
+      <li>"You are a <em>hiring manager</em> screening accounting graduates."</li>
+      <li>"You are a <em>grant reviewer</em> looking for reasons to reject this proposal."</li>
+    </ul>
+  </section>
+
+  <!-- ── 10 · Context Is Intelligence ─────────────────────── -->
+  <section data-label="Context Is Intelligence">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Central Thesis</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>10</em> / 19</span><span>Context Is Intelligence</span></div>
+    <div class="kicker"><span class="sig-dot"></span>Context is intelligence</div>
+    <h3 class="section-title">Same task. <em>Context added.</em></h3>
+    <div class="prompt-block">
+<div><span class="kw">TASK:</span> <span class="hl">Analyze retention strategies</span> for our campus.</div>
+<div style="margin-top:22px"><span class="kw">CONTEXT:</span> Private university in Puerto Rico. Enrollment declined <span class="hl">40% from 2020 to 2024</span>. <span class="hl">49%</span> of students are working adults (25–64). <span class="hl">70%</span> are Pell-eligible. Top withdrawal reason is <span class="hl">work schedule conflicts</span>.</div>
+    </div>
+    <div class="callout">
+      <div class="m">This is what <em>Monday</em> looks like. Next: run it live, side-by-side, in <em>Context in Action.</em></div>
+      <a class="mono-label" style="text-align:right; text-decoration:none; color:var(--im-yellow);"
+         href="../local/Context in Action.html" target="_blank" rel="noopener">→ Phase 2<br/>live demo ↗</a>
+    </div>
+  </section>
+
+  <!-- ── 11 · Three Signs ─────────────────────────────────── -->
+  <section data-label="Three Signs">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Diagnostics</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>11</em> / 19</span><span>Three Signs of a Bad Prompt</span></div>
+    <div class="kicker"><span class="sig-dot"></span>Three signs of a bad prompt</div>
+    <h3 class="section-title">If the answer is <em>this</em>, your prompt is <em>that</em>.</h3>
+    <div class="signs">
+      <div class="sign">
+        <div class="n">i.</div>
+        <div class="t"><em>Generic output</em> — you forgot context about your institution.
+          <small>Fix: add who you are, what you know, what's true of your students.</small>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="n">ii.</div>
+        <div class="t"><em>Unusable output</em> — you forgot constraints (budget, timeline, resources).
+          <small>Fix: "Implementable this year, no new budget, ≤ 90 days."</small>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="n">iii.</div>
+        <div class="t"><em>Consultant-speak</em> — you asked for "best practices" instead of solving a real problem.
+          <small>Fix: describe a specific decision you need to make on Monday.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 12 · Enrollment Question ──────────────────────────── -->
+  <section data-label="The Enrollment Question">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Stakes</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>12</em> / 19</span><span>The Enrollment Question</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The enrollment question</div>
+    <h3 class="section-title">Nobody wants to ask it. <em>So we will.</em></h3>
+    <div class="two" style="grid-template-columns:1.2fr 1fr; gap:80px; align-items:flex-start">
+      <table class="enroll-table">
+        <thead><tr><th>Year</th><th>Enrollment</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>2020</td><td>6,826</td><td>—</td></tr>
+          <tr><td>2021</td><td>5,774</td><td>−15%</td></tr>
+          <tr><td>2022</td><td>5,001</td><td>−27%</td></tr>
+          <tr><td>2023</td><td>4,360</td><td>−36%</td></tr>
+          <tr class="hero"><td>2024</td><td>4,101</td><td>−40%</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="3">Source: IPEDS public data · Unit ID 242653</td></tr></tfoot>
+      </table>
+      <div>
+        <div class="big-stat" style="margin-top:0">
+          <div class="num">−40%</div>
+        </div>
+        <p style="font-family:var(--serif); font-size:34px; line-height:1.25; color:var(--fg); margin:24px 0 0; max-width:540px">
+          If enrollment drops another <em style="color:var(--im-yellow); font-style:italic">20%</em>, which programs close? A committee of thirty won't answer that. <em style="color:var(--im-yellow); font-style:italic">An LLM will.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 13–17 · The Landscape (progressive) ─────────────── -->
+  <section data-label="The Landscape — Foundations">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>The Landscape</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>13</em> / 19</span><span>The Landscape · Foundation Models</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The landscape</div>
+    <h3 class="section-title">What you're <em>expected</em> to know.</h3>
+    <div class="lscape">
+      <div class="cat">Foundation</div>
+      <div class="val"><b>GPT-4o, GPT-4.5, o1, o3, o4-mini</b> (OpenAI) · <b>Claude Opus, Sonnet, Haiku</b> (Anthropic) · <b>Gemini Ultra, Pro, Flash</b> (Google)</div>
+    </div>
+  </section>
+
+  <section data-label="The Landscape — More Foundations">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>The Landscape</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>14</em> / 19</span><span>The Landscape · More Foundations</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The landscape</div>
+    <h3 class="section-title">More. Every <em>month.</em></h3>
+    <div class="lscape">
+      <div class="cat">Foundation</div>
+      <div class="val">GPT-4o, GPT-4.5, o1, o3, o4-mini · Claude Opus, Sonnet, Haiku · Gemini Ultra, Pro, Flash · <b>Llama 3, 4</b> (Meta) · <b>Mistral Large, Codestral</b> · <b>Command R+</b> (Cohere) · <b>Grok</b> (xAI) · <b>DeepSeek V3, R1</b> · <b>Qwen 2.5, QwQ</b> (Alibaba) · <b>Phi-4</b> (Microsoft)</div>
+    </div>
+  </section>
+
+  <section data-label="The Landscape — Coding & Media">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>The Landscape</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>15</em> / 19</span><span>The Landscape · Coding & Media</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The landscape</div>
+    <div class="lscape">
+      <div class="cat">Foundation</div>
+      <div class="val">GPT, Claude, Gemini, Llama, Mistral, Command R+, Grok, DeepSeek, Qwen, Phi</div>
+      <div class="cat">Coding</div>
+      <div class="val"><b>GitHub Copilot, Claude Code, Cursor, Windsurf, Aider, Amazon Q Developer, Cline, Replit Agent, Devin, v0, Bolt, Lovable</b></div>
+      <div class="cat">Image / Video / Audio</div>
+      <div class="val"><b>DALL-E 3, Midjourney v6, Stable Diffusion, Flux, Firefly · Sora, Runway Gen-3, Kling, Pika · ElevenLabs, Suno, Udio, NotebookLM</b></div>
+    </div>
+  </section>
+
+  <section data-label="The Landscape — Systems">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>The Landscape</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>16</em> / 19</span><span>The Landscape · Systems</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The landscape</div>
+    <div class="lscape">
+      <div class="cat">Retrieval / Agents</div>
+      <div class="val"><b>RAG</b>, LangChain, LlamaIndex, CrewAI, AutoGen, <b>MCP</b>, function calling, tool use, multi-agent, computer use, memory</div>
+      <div class="cat">Fine-tuning</div>
+      <div class="val"><b>LoRA, QLoRA, RLHF, DPO</b>, Constitutional AI, Custom GPTs, Claude Projects, prompt caching, <b>128K–1M+ context</b></div>
+      <div class="cat">Infrastructure</div>
+      <div class="val">Hugging Face, Ollama, vLLM, GGUF, AWS Bedrock, Azure OpenAI, Vertex AI, Groq, Together, Fireworks, Modal, Replicate</div>
+    </div>
+  </section>
+
+  <section data-label="The Landscape — Already Outdated">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>The Landscape</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>17</em> / 19</span><span>This list is already outdated</span></div>
+    <div class="kicker"><span class="sig-dot"></span>The landscape</div>
+    <div class="lscape">
+      <div class="cat">Evaluation / Safety</div>
+      <div class="val">Red teaming, prompt injection, jailbreaking, hallucination detection, <b>MMLU · HumanEval · GPQA · ARC-AGI</b>, alignment, interpretability, watermarking</div>
+      <div class="cat">Emerging (2025–26)</div>
+      <div class="val"><b>Reasoning models</b> (chain-of-thought, extended thinking) · computer-use agents · deep research agents · real-time voice · multimodal (text+image+audio+video) · code execution · structured outputs · citations</div>
+    </div>
+    <div class="punch">
+      This list is <em>already outdated.</em><br/>
+      No one person can learn all of this. <em>No one should try.</em>
+    </div>
+  </section>
+
+  <!-- ── 18 · Burnout Type 1 ───────────────────────────────── -->
+  <section data-label="AI Burnout — Type 1">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>AI Burnout · Type 1</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>18</em> / 19</span><span>AI Burnout — Catching-Up</span></div>
+    <div class="kicker"><span class="sig-dot"></span>AI Burnout · Type 1 — The catching-up trap</div>
+    <h3 class="section-title">The stages of <em>falling behind.</em></h3>
+    <div class="stages">
+      <div class="st"><div class="grid"><span class="k">Awareness</span><span class="v">that something important is changing.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Effort</span><span class="v">to keep up — reading, experimenting, attending workshops.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Recognition</span><span class="v">that the gap between what you know and what exists is widening despite the effort.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Dread</span><span class="v">that falling behind carries professional consequences.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Exhaustion</span><span class="v">from the effort coupled with the sense of futility. <em style="color:var(--im-yellow); font-style:italic">Acceptance is the way out.</em></span></div></div>
+    </div>
+  </section>
+
+  <!-- ── 19 · Burnout Type 2 + Close ──────────────────────── -->
+  <section data-label="AI Burnout — Type 2">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>AI Burnout · Type 2</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>19</em> / 19</span><span>AI Burnout — Strategic Thinking</span></div>
+    <div class="kicker"><span class="sig-dot"></span>AI Burnout · Type 2 — The strategic-thinking trap</div>
+    <h3 class="section-title">The feedback loop that <em>eats your day.</em></h3>
+    <div class="stages">
+      <div class="st"><div class="grid"><span class="k">Leverage</span><span class="v">better thinking produces better AI output.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Reinforcement</span><span class="v">better output confirms the value of investing more thought.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Compulsion</span><span class="v">the high return on thinking makes it addictive.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Disappearance</span><span class="v">30 minutes becomes 4 hours. A workday in continuous strategic thinking is more cognitively demanding than most people expect.</span></div></div>
+      <div class="st"><div class="grid"><span class="k">Silence</span><span class="v">the exhaustion is real but difficult to name. <em style="color:var(--im-yellow); font-style:italic">Questions?</em></span></div></div>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>

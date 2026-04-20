@@ -45,6 +45,7 @@ Generated from curricular-sequence YAML. Content in Spanish (SmartCatalog source
 | [Social Sciences 2](catalog/programs-social-sciences-2.md) | Inglés, Español, Idiomas Modernos, Humanidades, Religión |
 | [Other Programs 1](catalog/programs-other-1.md) | Justicia Criminal, Criminología, Seguridad |
 | [Other Programs 2](catalog/programs-other-2.md) | Hospitalidad, Turismo, Agricultura, Deportes, Capellanía |
+| [Costs and Financial Aid](catalog/costs-financial-aid.md) | Matrícula por crédito, cuotas por término, otros cargos, pagos diferidos, reembolsos, bajas militares, ayudas económicas |
 
 ---
 
@@ -55,6 +56,7 @@ Curated from public federal data sources.
 | File | Coverage |
 |------|----------|
 | [Enrollment Data](institutional/enrollment-data.md) | Matrícula 2020–2024, demografía, tasas de graduación (IPEDS) |
+| [Academic Calendars](institutional/calendar.md) | 9 calendarios 2025-26: semestre, bimestre, Panamá, Tecnología Médica, sesiones de verano |
 
 ---
 
