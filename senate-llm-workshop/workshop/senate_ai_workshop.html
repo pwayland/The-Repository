@@ -298,6 +298,60 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
 }
 .callout .m{ font-family:var(--serif); font-size:40px; line-height:1.2; }
 .callout .m em{ color:var(--im-yellow); font-style:italic; }
+
+/* ── slide-corner QR / print-link (bottom-right, above chrome) ── */
+.slide-qr{
+  position:absolute;
+  right:48px;
+  bottom:86px;        /* sits above .chrome.bot (bottom:36px) with breathing room */
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+  z-index:2;
+}
+.slide-qr img{
+  width:140px; height:140px;
+  background:#fff; padding:6px; border-radius:4px;
+  display:block;
+}
+.slide-qr .qr-caption{
+  font-family:var(--mono); font-size:12px;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--fg-3); max-width:160px;
+  text-align:right; line-height:1.3;
+}
+.slide-qr .qr-link{ display:none; }
+
+/* Title slide: lift QR above the byline block */
+.title-slide .slide-qr{ right:80px; bottom:140px; }
+
+/* Closing slide: centered layout — QR stays in bottom-right but caption color warmed */
+.closing-slide .slide-qr .qr-caption{ color:var(--fg-2); }
+
+/* Email line on the Questions? slide */
+.email-line{
+  margin-top:48px;
+  font-family:var(--mono); font-size:32px; letter-spacing:.04em;
+  color:var(--fg-2);
+}
+.email-line a{ color:var(--im-yellow); text-decoration:none; border-bottom:1px solid var(--rule-2); padding-bottom:2px; }
+
+/* ── Print: swap QR image for a styled text link (for the PDF export) ── */
+@media print{
+  .slide-qr img{ display:none !important; }
+  .slide-qr .qr-caption{ display:none !important; }
+  .slide-qr .qr-link{
+    display:inline-block !important;
+    font-family:var(--mono); font-size:18px; letter-spacing:.06em;
+    color:var(--im-yellow); text-decoration:none;
+    border:1px solid var(--im-yellow);
+    padding:12px 20px; border-radius:4px;
+    white-space:nowrap;
+  }
+  /* Title slide QR (the deck itself) — no point in a link in the PDF */
+  .slide-qr.title-qr{ display:none !important; }
+}
 </style>
 </head>
 <body>
@@ -323,7 +377,8 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
   "Retrieval. Agents. Orchestration. Fine-tuning. Infrastructure. These are entire subfields.",
   "Evaluation. Safety. Emerging capabilities. This list is already outdated. No one person can learn all of this. No one should try.",
   "AI Burnout — Type 1. The catching-up trap. Awareness that something is changing. Effort to keep up. Recognition the gap is widening. Dread. Exhaustion. This is not a personal failing. It's structural. The productive response is acceptance — depth over breadth.",
-  "AI Burnout — Type 2. The strategic thinking trap. Better thinking produces better AI output. Better output rewards more thinking. Hours disappear. 30 minutes becomes 4. This is as cognitively demanding as surgery or air traffic control, and we have no institutional norms around it yet. Questions?"
+  "AI Burnout — Type 2. The strategic thinking trap. Better thinking produces better AI output. Better output rewards more thinking. Hours disappear. 30 minutes becomes 4. This is as cognitively demanding as surgery or air traffic control, and we have no institutional norms around it yet.",
+  "Questions? Reactions, pushback, what surprised you, what you want to try Monday. My email is on the screen — follow up after today, especially if you want to bring an LLM to a decision you're facing this semester. The QR goes to the full repository if you want the knowledge base files."
 ]
 </script>
 
@@ -349,6 +404,10 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span>Paul Wayland · Inter American University · Metro Campus</span>
       <span><b>2026</b></span>
     </div>
+    <div class="slide-qr title-qr">
+      <img src="assets/slidedeck-qr-code.png" alt="QR code to slide deck" />
+      <div class="qr-caption">Scan · slide deck</div>
+    </div>
   </section>
 
   <!-- ── 2 · Intent ──────────────────────────────────────────── -->
@@ -357,7 +416,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Senate AI Workshop</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>02</em> / 19</span><span>Intent</span></div>
+    <div class="chrome bot"><span class="num"><em>02</em> / 20</span><span>Intent</span></div>
     <div class="slide-body" style="justify-content:center">
       <h1 class="display">
         Leave with something<br/>
@@ -373,13 +432,18 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Prompt Guide</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>03</em> / 19</span><span>The Starting Formula</span></div>
+    <div class="chrome bot"><span class="num"><em>03</em> / 20</span><span>The Starting Formula</span></div>
     <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
     <h2 class="display">From nothing<br/>to <em>adequate.</em></h2>
     <div class="formula">
       <span class="tok">TASK</span> <span class="op">+</span>
       <span class="tok">CONTEXT</span> <span class="op">+</span>
       <span class="tok">OUTPUT&nbsp;FORMAT</span>
+    </div>
+    <div class="slide-qr">
+      <img src="assets/prompt-guide-qr-code.png" alt="QR code to prompt guide" />
+      <div class="qr-caption">Scan · prompt guide</div>
+      <a class="qr-link" href="https://github.com/pwayland/The-Repository/blob/main/senate-llm-workshop/workshop/prompt-guide.md">→ Prompt Guide</a>
     </div>
   </section>
 
@@ -389,7 +453,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>04</em> / 19</span><span>Task</span></div>
+    <div class="chrome bot"><span class="num"><em>04</em> / 20</span><span>Task</span></div>
     <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
     <div class="formula">
       <span class="tok active">TASK</span> <span class="op">+</span>
@@ -408,7 +472,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>05</em> / 19</span><span>Context</span></div>
+    <div class="chrome bot"><span class="num"><em>05</em> / 20</span><span>Context</span></div>
     <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
     <div class="formula">
       <span class="tok">TASK</span> <span class="op">+</span>
@@ -429,7 +493,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Prompt Guide · Formula</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>06</em> / 19</span><span>Output Format</span></div>
+    <div class="chrome bot"><span class="num"><em>06</em> / 20</span><span>Output Format</span></div>
     <div class="kicker"><span class="sig-dot"></span>The starting formula</div>
     <div class="formula">
       <span class="tok">TASK</span> <span class="op">+</span>
@@ -452,7 +516,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Prompt Guide</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>07</em> / 19</span><span>Beyond the Formula</span></div>
+    <div class="chrome bot"><span class="num"><em>07</em> / 20</span><span>Beyond the Formula</span></div>
     <div class="kicker"><span class="sig-dot"></span>Beyond the formula</div>
     <h2 class="display">From adequate<br/>to <em>useful.</em></h2>
     <div class="formula" style="font-size:44px">
@@ -463,6 +527,11 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="tok">CONSTRAINTS</span> <span class="op">+</span>
       <span class="tok">ROLE</span>
     </div>
+    <div class="slide-qr">
+      <img src="assets/workshop-qr-code.png" alt="QR code to workshop folder" />
+      <div class="qr-caption">Scan · workshop</div>
+      <a class="qr-link" href="https://github.com/pwayland/The-Repository/tree/main/senate-llm-workshop/workshop">→ Workshop</a>
+    </div>
   </section>
 
   <!-- ── 8 · Constraints ───────────────────────────────────── -->
@@ -471,7 +540,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Beyond the Formula</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>08</em> / 19</span><span>Constraints</span></div>
+    <div class="chrome bot"><span class="num"><em>08</em> / 20</span><span>Constraints</span></div>
     <div class="kicker"><span class="sig-dot"></span>Constraints — what it shouldn't do</div>
     <h3 class="section-title">Tell it what <em>not</em> to do.</h3>
     <ul class="qlist">
@@ -487,7 +556,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Beyond the Formula</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>09</em> / 19</span><span>Role</span></div>
+    <div class="chrome bot"><span class="num"><em>09</em> / 20</span><span>Role</span></div>
     <div class="kicker"><span class="sig-dot"></span>Role — whose perspective</div>
     <h3 class="section-title">Break it. <em>Adversarial beats supportive.</em></h3>
     <ul class="qlist">
@@ -503,7 +572,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Central Thesis</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>10</em> / 19</span><span>Context Is Intelligence</span></div>
+    <div class="chrome bot"><span class="num"><em>10</em> / 20</span><span>Context Is Intelligence</span></div>
     <div class="kicker"><span class="sig-dot"></span>Context is intelligence</div>
     <h3 class="section-title">Same task. <em>Context added.</em></h3>
     <div class="prompt-block">
@@ -523,7 +592,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Diagnostics</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>11</em> / 19</span><span>Three Signs of a Bad Prompt</span></div>
+    <div class="chrome bot"><span class="num"><em>11</em> / 20</span><span>Three Signs of a Bad Prompt</span></div>
     <div class="kicker"><span class="sig-dot"></span>Three signs of a bad prompt</div>
     <h3 class="section-title">If the answer is <em>this</em>, your prompt is <em>that</em>.</h3>
     <div class="signs">
@@ -554,7 +623,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>Stakes</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>12</em> / 19</span><span>The Enrollment Question</span></div>
+    <div class="chrome bot"><span class="num"><em>12</em> / 20</span><span>The Enrollment Question</span></div>
     <div class="kicker"><span class="sig-dot"></span>The enrollment question</div>
     <h3 class="section-title">Nobody wants to ask it. <em>So we will.</em></h3>
     <div class="two" style="grid-template-columns:1.2fr 1fr; gap:80px; align-items:flex-start">
@@ -586,7 +655,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>The Landscape</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>13</em> / 19</span><span>The Landscape · Foundation Models</span></div>
+    <div class="chrome bot"><span class="num"><em>13</em> / 20</span><span>The Landscape · Foundation Models</span></div>
     <div class="kicker"><span class="sig-dot"></span>The landscape</div>
     <h3 class="section-title">What you're <em>expected</em> to know.</h3>
     <div class="lscape">
@@ -600,7 +669,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>The Landscape</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>14</em> / 19</span><span>The Landscape · More Foundations</span></div>
+    <div class="chrome bot"><span class="num"><em>14</em> / 20</span><span>The Landscape · More Foundations</span></div>
     <div class="kicker"><span class="sig-dot"></span>The landscape</div>
     <h3 class="section-title">More. Every <em>month.</em></h3>
     <div class="lscape">
@@ -614,7 +683,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>The Landscape</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>15</em> / 19</span><span>The Landscape · Coding & Media</span></div>
+    <div class="chrome bot"><span class="num"><em>15</em> / 20</span><span>The Landscape · Coding & Media</span></div>
     <div class="kicker"><span class="sig-dot"></span>The landscape</div>
     <div class="lscape">
       <div class="cat">Foundation</div>
@@ -631,7 +700,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>The Landscape</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>16</em> / 19</span><span>The Landscape · Systems</span></div>
+    <div class="chrome bot"><span class="num"><em>16</em> / 20</span><span>The Landscape · Systems</span></div>
     <div class="kicker"><span class="sig-dot"></span>The landscape</div>
     <div class="lscape">
       <div class="cat">Retrieval / Agents</div>
@@ -648,7 +717,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>The Landscape</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>17</em> / 19</span><span>This list is already outdated</span></div>
+    <div class="chrome bot"><span class="num"><em>17</em> / 20</span><span>This list is already outdated</span></div>
     <div class="kicker"><span class="sig-dot"></span>The landscape</div>
     <div class="lscape">
       <div class="cat">Evaluation / Safety</div>
@@ -668,7 +737,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>AI Burnout · Type 1</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>18</em> / 19</span><span>AI Burnout — Catching-Up</span></div>
+    <div class="chrome bot"><span class="num"><em>18</em> / 20</span><span>AI Burnout — Catching-Up</span></div>
     <div class="kicker"><span class="sig-dot"></span>AI Burnout · Type 1 — The catching-up trap</div>
     <h3 class="section-title">The stages of <em>falling behind.</em></h3>
     <div class="stages">
@@ -686,7 +755,7 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
       <span class="phase"><span class="sig-dot"></span>AI Burnout · Type 2</span>
     </div>
-    <div class="chrome bot"><span class="num"><em>19</em> / 19</span><span>AI Burnout — Strategic Thinking</span></div>
+    <div class="chrome bot"><span class="num"><em>19</em> / 20</span><span>AI Burnout — Strategic Thinking</span></div>
     <div class="kicker"><span class="sig-dot"></span>AI Burnout · Type 2 — The strategic-thinking trap</div>
     <h3 class="section-title">The feedback loop that <em>eats your day.</em></h3>
     <div class="stages">
@@ -694,7 +763,28 @@ h3.section-title em{ color:var(--im-yellow); font-style:italic; }
       <div class="st"><div class="grid"><span class="k">Reinforcement</span><span class="v">better output confirms the value of investing more thought.</span></div></div>
       <div class="st"><div class="grid"><span class="k">Compulsion</span><span class="v">the high return on thinking makes it addictive.</span></div></div>
       <div class="st"><div class="grid"><span class="k">Disappearance</span><span class="v">30 minutes becomes 4 hours. A workday in continuous strategic thinking is more cognitively demanding than most people expect.</span></div></div>
-      <div class="st"><div class="grid"><span class="k">Silence</span><span class="v">the exhaustion is real but difficult to name. <em style="color:var(--im-yellow); font-style:italic">Questions?</em></span></div></div>
+      <div class="st"><div class="grid"><span class="k">Silence</span><span class="v">the exhaustion is real but difficult to name.</span></div></div>
+    </div>
+  </section>
+
+  <!-- ── 20 · Questions? ───────────────────────────────────── -->
+  <section class="closing-slide" data-label="Questions?">
+    <div class="chrome top">
+      <span class="im-mark"><span class="inter">INTER</span><span class="metro">METRO</span></span>
+      <span class="phase"><span class="sig-dot"></span>Discussion</span>
+    </div>
+    <div class="chrome bot"><span class="num"><em>20</em> / 20</span><span>Questions?</span></div>
+    <div class="slide-body" style="justify-content:center">
+      <div class="kicker"><span class="sig-dot"></span>Discussion · follow-up</div>
+      <h1 class="display" style="font-size:220px"><em>Questions?</em></h1>
+      <div class="email-line">
+        <a href="mailto:pwayland@intermetro.edu">pwayland@intermetro.edu</a>
+      </div>
+    </div>
+    <div class="slide-qr">
+      <img src="../assets/repository-qr-code.png" alt="QR code to The-Repository on GitHub" />
+      <div class="qr-caption">Scan · repository</div>
+      <a class="qr-link" href="https://github.com/pwayland/The-Repository">→ Repository</a>
     </div>
   </section>
 
