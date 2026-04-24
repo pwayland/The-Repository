@@ -47,7 +47,8 @@
       "Bash(cp \"/tmp/design-extract/proj/deck-stage.js\" \"C:/Users/paulw/The-Repository/senate-llm-workshop/drafts/design-import/deck-stage.js\")",
       "Bash(cp \"/tmp/design-extract/proj/assets/ai-campaign.css\" \"C:/Users/paulw/The-Repository/senate-llm-workshop/drafts/design-import/ai-campaign.css\")",
       "Bash(cp \"/tmp/design-extract/proj/README.md\" \"C:/Users/paulw/The-Repository/senate-llm-workshop/drafts/design-import/project-README.md\")",
-      "Bash(cp \"/tmp/design-extract/proj/index.md\" \"C:/Users/paulw/The-Repository/senate-llm-workshop/drafts/design-import/project-index.md\")"
+      "Bash(cp \"/tmp/design-extract/proj/index.md\" \"C:/Users/paulw/The-Repository/senate-llm-workshop/drafts/design-import/project-index.md\")",
+      "Bash(curl -sI \"https://raw.githubusercontent.com/pwayland/The-Repository/main/senate-llm-workshop/institutional/enrollment-data.md\")"
     ]
   }
 }
