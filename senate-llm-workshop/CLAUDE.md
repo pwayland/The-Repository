@@ -8,6 +8,9 @@ Dual-purpose public folder: workshop materials for the Academic Senate AI worksh
 workshop/       ← delivery materials (prompt guide, templates, provocation, resources)
 catalog/        ← GENERATED program/degree .md files from curricular-sequence YAML
 institutional/  ← MANUAL curated institutional context files
+                  flat: enrollment-data.md, calendar.md, strategic-plan-27.md
+                  faculty/     → Manual de la Facultad + evaluation guide
+                  regulations/ → UIPR Documentos Normativos (own index.md)
 data/           ← reference data (CSV, job market compilations)
 archive/        ← Workshop 1.0 materials (preserved, not active)
 ```

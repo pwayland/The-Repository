@@ -2,7 +2,7 @@
 title: "Senate AI Workshop — Strategic LLM Applications for Institutional Transformation"
 source: manual
 owner: Paul Wayland
-last-updated: 2026-04-07
+last-updated: 2026-04-27
 ---
 
 # Senate AI Workshop
@@ -64,6 +64,10 @@ catalog/                Knowledge base: 146 academic programs (generated from YA
 
 institutional/          Knowledge base: institutional context (curated)
   enrollment-data.md      Enrollment trends 2020–2024 (IPEDS data)
+  calendar.md             Academic calendars 2025-26
+  strategic-plan-27.md    Plan Estratégico 2023-24 a 2026-27
+  faculty/                Manual de la Facultad and evaluation guide summaries
+  regulations/            UIPR Documentos Normativos (CAI, IT, research, confidentiality)
 
 data/                   Reference data
   CSV_182026-218.csv      IPEDS data export
@@ -107,7 +111,6 @@ These files are not summaries or reports. They are **context files** — structu
 
 - No confidential student information (FERPA compliance)
 - No proprietary institutional data without authorization
-- No personnel information or sensitive strategic plans
 - All enrollment data is from public federal sources (IPEDS)
 - Use representative examples or anonymized data for practice
 

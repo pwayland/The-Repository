@@ -2,7 +2,7 @@
 title: "Index — Senate AI Workshop"
 source: manual
 owner: Paul Wayland
-last-updated: 2026-04-07
+last-updated: 2026-04-27
 ---
 
 # Senate AI Workshop — Index
@@ -51,12 +51,38 @@ Generated from curricular-sequence YAML. Content in Spanish (SmartCatalog source
 
 ## Knowledge Base: Institutional Context
 
-Curated from public federal data sources.
+Curated institutional documents and public federal data sources.
 
 | File | Coverage |
 |------|----------|
 | [Enrollment Data](institutional/enrollment-data.md) | Matrícula 2020–2024, demografía, tasas de graduación (IPEDS) |
 | [Academic Calendars](institutional/calendar.md) | 9 calendarios 2025-26: semestre, bimestre, Panamá, Tecnología Médica, sesiones de verano |
+| [Plan Estratégico 2023-2027](institutional/strategic-plan-27.md) | Plan Estratégico del Recinto Metropolitano, 2023-24 al 2026-27. Visión, misión, 11 metas, objetivos estratégicos, indicadores de éxito. |
+
+---
+
+## Knowledge Base: Faculty
+
+Resúmenes de documentos normativos sobre la facultad UIPR.
+
+| File | Coverage |
+|------|----------|
+| [Manual de la Facultad — Resumen](institutional/faculty/manual-summary.md) | Resumen del Manual de la Facultad UIPR (mayo 2017, 180 pp.): 7 partes + 10 anejos. Rangos, deberes, derechos, contratos, permanencia, despido, comités. |
+| [Guías para la Evaluación del Personal Docente — Resumen](institutional/faculty/guias-evaluacion-docente.md) | Vigencia 1-ago-2016 (79 pp.): proceso formativo y sumativo, 5 criterios evaluativos, valencias (E&CD 65% · Serv Inst 10% · Inv 12% · Crec 10% · Serv Com 3%), 7 instrumentos, portafolio, ruta administrativa de permanencia, plazos y objeción/apelación. |
+
+---
+
+## Knowledge Base: Regulations (Institutional)
+
+Resúmenes de Documentos Normativos UIPR de aplicación institucional. Ver [regulations/index.md](institutional/regulations/index.md) para referencias cruzadas por tema.
+
+| File | Coverage |
+|------|----------|
+| [Bibliotecas / CAI](institutional/regulations/bibliotecas-cai.md) | **A-CAI-003-97** (19 pp., dic 1997). Reglamento de los Centros de Acceso a la Información: 14 definiciones, servicios, préstamos, préstamo interbibliotecario, esquema de multas, derechos de autor, penalidades. |
+| [Tecnología, Correo e Internet](institutional/regulations/tecnologia-comunicaciones.md) | Consolidación de **I-0410-011R** (sombrilla IT, 2011) + **I-0619-022** (correo, 2019) + **I-0822-028** (Internet, 2022). Privacidad, seguridad, usos no aceptables, monitoreo e inspección, formulario Control de Accesos. |
+| [Integridad en la Investigación](institutional/regulations/integridad-investigacion.md) | **A-0605-018** política + **A-0106-020** procedimiento (2005-06). Definición de misconduct (5 categorías), whistleblower, 5 etapas de procedimiento, 120 días laborables, notificación a ORI, sanciones, apelación al Presidente. |
+| [Sujetos de Investigación — Animales y Humanos](institutional/regulations/sujetos-investigacion.md) | **A-1120-064** (IACUC animales) + **A-1220-065** (IRB humanos), ambos 2020. Aprobación previa, minimal risk, informed consent, online research, responsabilidades de PI / mentores / decanos / IOAR-IARO / comités. |
+| [Confidencialidad de la Información](institutional/regulations/confidencialidad-informacion.md) | **I-1209-006** (15 pp., 2009). 5 categorías de clasificación, PII específico (SS, licencia, salud, etc.), responsabilidades por rol, manejo de equipos, resguardos, prohibición de enviar info confidencial por email, DLP. |
 
 ---
 
