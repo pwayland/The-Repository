@@ -33,3 +33,7 @@ Build an agent with the following characteristics:
 ## Test cases
 
 ## Definition of success
+
+## build a plan / ask for approval
+
+make a plan before executing. Ask me for approval so that I can review it.
